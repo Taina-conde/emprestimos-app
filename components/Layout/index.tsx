@@ -1,23 +1,24 @@
 import Head from "next/head";
 import styled from "styled-components";
 
-const StyledLayout = styled.div``;
+const Container = styled.div``;
+
+const Nav = styled.nav``;
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (
-    <StyledLayout>
+    <div>
       <Head>
-        <meta
-          name="description"
-          content="Solicite empréstimos"
-        />
-        <meta
-          property="og:image"
-          content={}
-        />
+        <title>Klutch Tecnologia</title>
+        <meta name="description" content="Solicite empréstimos" />
         <meta name="og:title" content="Klutch Tecnologia" />
       </Head>
-      <main>{children}</main>
-    </StyledLayout>
+      <main>
+        <Nav>
+          
+        </Nav>
+        <Container>{children}</Container>
+      </main>
+    </div>
   );
 }
