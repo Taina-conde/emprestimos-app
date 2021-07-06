@@ -1,7 +1,7 @@
 import { useMemo } from 'react';
 import { configureStore } from '@reduxjs/toolkit';
 import logger from 'redux-logger'
-import reducer from './reducers';
+import { solicitationReducer } from './reducers/solicitation';
 
 let store;
 
@@ -53,7 +53,9 @@ const initialState = {
 
   function initStore(preloadedState = initialState) {
     return configureStore({
-      reducer,
+      reducer: {
+          solicitation: solicitationReducer,
+      },
       middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(logger),
       preloadedState,
       
