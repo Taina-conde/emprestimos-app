@@ -1,9 +1,10 @@
 import { useMemo } from 'react';
-import { createStore } from 'redux';
-import middleware from './middleware';
+import { configureStore } from '@reduxjs/toolkit';
+import logger from 'redux-logger'
 import reducer from './reducers';
 
 let store;
+
 
 const initialState = {
     lastUpdate: 0,
@@ -12,12 +13,14 @@ const initialState = {
   }
 
   function initStore(preloadedState = initialState) {
-    return createStore(
+    return configureStore({
       reducer,
+      middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(logger),
       preloadedState,
-      middleware
-    )
+      
+    })
   }
+
   export const initializeStore = (preloadedState) => {
     let _store = store ?? initStore(preloadedState)
   
@@ -43,3 +46,5 @@ const initialState = {
     const store = useMemo(() => initializeStore(initialState), [initialState])
     return store
   }
+  export type RootState = ReturnType<typeof store.getState>
+  export type AppDispatch = typeof store.dispatch
