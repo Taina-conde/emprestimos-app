@@ -36,13 +36,19 @@ const Logo = styled.div`
   text-align: center;
 `;
 const HeaderTitle = styled.div`
-  color: ${props => props.theme.colors.primary.main};
+  color: ${(props) => props.theme.colors.primary.main};
   font-size: 56px;
   width: 285px;
   margin-left: 20px;
-`
+`;
 
-export default function Layout({ children, title }: { children: React.ReactNode, title: string }) {
+export default function Layout({
+  children,
+  title,
+}: {
+  children: React.ReactNode;
+  title: string;
+}) {
   return (
     <div>
       <Head>
@@ -54,18 +60,22 @@ export default function Layout({ children, title }: { children: React.ReactNode,
         <Nav>
           <IoMdMenu size={40} color="white" />
           <Logo>
-            <Image src={klutchLogo} alt="Klutch Tecnologia"/>
+            <Image src={klutchLogo} alt="Klutch Tecnologia" />
           </Logo>
         </Nav>
         <Container>
           <Header>
-            <Image src={ plusIcon } alt="Plus icon" width = {67} height = {84}/>
-            <Image src={foldersIcon} alt="Folders icon" width = {115} height = {115} />
-            <HeaderTitle>
-              {title}
-            </HeaderTitle>
+            {title !== "Detalhe de Solicitação" && (
+              <Image src={plusIcon} alt="Plus icon" width={67} height={84} />
+            )}
+            <Image
+              src={foldersIcon}
+              alt="Folders icon"
+              width={115}
+              height={115}
+            />
+            <HeaderTitle>{title}</HeaderTitle>
           </Header>
-
           {children}
         </Container>
       </main>
