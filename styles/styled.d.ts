@@ -4,8 +4,14 @@ import 'styled-components';
 declare module 'styled-components' {
   export interface DefaultTheme {
     colors: {
-      main: string;
-      secondary: string;
+      primary: {
+          main: string;
+          dark: string;
+    }
+      secondary: {
+          main: string;
+          dark: string;
+      }
       text: {
           main: string;
           secondary: string;

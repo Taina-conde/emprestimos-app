@@ -1,13 +1,19 @@
-import { DefaultTheme } from 'styled-components';
+import { DefaultTheme } from "styled-components";
 
 const appTheme: DefaultTheme = {
   colors: {
-    main: '#228A95',
-    secondary: '#EF9C4B',
+    primary: { 
+        main: "#228A95", 
+        dark: "#187680",
+     },
+    secondary: {
+      main: "#EF9C4B",
+      dark: "#FD8030",
+    },
     text: {
-        main: '#777777',
-        secondary: '#FFFFFF',
-    }
+      main: "#777777",
+      secondary: "#FFFFFF",
+    },
   },
 };
 
