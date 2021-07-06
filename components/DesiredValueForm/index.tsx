@@ -1,21 +1,26 @@
-import styled from "styled-components";
-
-export const Title = styled.h1`
-font-size : 40px;
-color: ${props => props.theme.colors.primary.main};
-text-align: center;
-text-transform: capitalize;
-padding: 20px;
-`
-export const Form = styled.form`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-`;
-export const Input = styled.input`
-    flex-grow: 2;
-    background-color: ${props => props.theme.input.backgroundColor.primary};
-    border-radius: ${props => props.theme.input.borderRadius};
-    color: ${props => props.theme.colors.text.main};
-    
-`
+import { Form, Input, Button, Title } from "./styled";
+export default function DesiredValueForm({
+  touched,
+  errors,
+  values,
+  handleChange,
+  handleBlur,
+  handleSubmit,
+}) {
+  return (
+    <Form onSubmit={handleSubmit}>
+    <Title>Valor desejado</Title>
+      <Input
+        onChange={handleChange}
+        onBlur={handleBlur}
+        value={values.desiredValue}
+        type = 'text'
+        name = 'desiredValue'
+        placeholder="R$ 0,00"
+      />
+      <Button type = 'submit'>
+          Calcular
+      </Button>
+    </Form>
+  );
+}
