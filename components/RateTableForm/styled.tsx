@@ -5,6 +5,7 @@ export const Form = styled.form`
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-top: 30px;
 `;
 export const Table = styled.table`
 color: ${props => props.theme.colors.text.main};
