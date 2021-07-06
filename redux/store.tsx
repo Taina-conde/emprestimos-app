@@ -5,11 +5,50 @@ import reducer from './reducers';
 
 let store;
 
+interface State {
+    solicitation: {
+        id: string;
+        clientId: string;
+        cardNumber: string;
+        desiredValue: number;
+        rateTableId: string;
+        installmentId: string;
+        installmentInterest: number;
+        installmentInterestValue: number;
+        totalLoan: number;
+        installmentValue: number;
+        comission: number;
+        comissionValue: number;
+        contractType: string;
+    }
+    solicitations: any;
+    clients: any;
+    rateTables: any;
+
+}
 
 const initialState = {
-    lastUpdate: 0,
-    light: false,
-    count: 0,
+    solicitation: {
+        id: "",
+        clientId: "",
+        cardNumber: "",
+        desiredValue: 0,
+        rateTableId: "",
+        installmentId: "",
+        installmentInterest: 0,
+        installmentInterestValue: 0,
+        totalLoan: 0,
+        installmentValue: 0,
+        comission: 0,
+        comissionValue: 0,
+        contractType: "",
+
+    },
+    solicitations: [],
+    clients: [],
+    rateTables: []
+
+
   }
 
   function initStore(preloadedState = initialState) {
@@ -21,7 +60,7 @@ const initialState = {
     })
   }
 
-  export const initializeStore = (preloadedState) => {
+  export const initializeStore = (preloadedState: State) => {
     let _store = store ?? initStore(preloadedState)
   
     // After navigating to a page with an initial Redux state, merge that state
@@ -42,7 +81,7 @@ const initialState = {
   
     return _store
   }
-  export function useStore(initialState) {
+  export function useStore(initialState: State) {
     const store = useMemo(() => initializeStore(initialState), [initialState])
     return store
   }
