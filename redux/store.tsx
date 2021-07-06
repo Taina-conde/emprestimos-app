@@ -1,7 +1,7 @@
 import { useMemo } from 'react';
 import { configureStore } from '@reduxjs/toolkit';
 import logger from 'redux-logger'
-import { solicitationReducer } from './reducers/solicitation';
+import solicitationReducer from './slices/solicitation';
 
 let store;
 
