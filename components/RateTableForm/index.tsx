@@ -1,6 +1,6 @@
 import { Formik, FormikHelpers, FormikErrors } from "formik";
-import RateTable from './RateTable';
-import {Form, Button} from './styled';
+import RateTable from "./RateTable";
+import { Form, Button, FixedBar, Text } from "./styled";
 interface Values {
   rateTableId: string;
   installments: number;
@@ -16,7 +16,7 @@ export default function RateTableForm() {
       }}
       validate={(values: Values) => {
         let errors: FormikErrors<Values> = {};
-        
+
         return errors;
       }}
       onSubmit={(values: Values, { setSubmitting }: FormikHelpers<Values>) => {
@@ -35,8 +35,13 @@ export default function RateTableForm() {
         values,
       }) => (
         <Form onSubmit={handleSubmit}>
-          <RateTable/>
-            <Button type="submit">Calcular</Button>
+          <RateTable />
+          <FixedBar>
+            <Text>Nome: </Text>
+            <Text>Parcelas: </Text>
+            <Text>Valor da Parcela: </Text>
+            <Button type="submit">Avançar</Button>
+          </FixedBar>
         </Form>
       )}
     </Formik>
