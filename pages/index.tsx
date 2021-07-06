@@ -1,5 +1,5 @@
 import Layout from "../components/Layout";
-import { ErrorMessage, Formik, FormikHelpers, FormikErrors } from "formik";
+import { Formik, FormikHelpers, FormikErrors } from "formik";
 import DesiredValueForm  from '../components/DesiredValueForm';
 
 interface Values {
@@ -33,7 +33,7 @@ export default function Home() {
             }, 500);
           }}
         >
-          {(props) => <DesiredValueForm message = "Valor desejado" {...props}/>}
+          {(props) => <DesiredValueForm {...props}/>}
           
         </Formik>
       </div>

@@ -12,11 +12,9 @@ import { FormikProps } from "formik";
 interface FormValues {
   desiredValue: number;
 }
-interface OtherProps {
-  message: string;
-}
+
 export default function DesiredValueForm(
-  props: OtherProps & FormikProps<FormValues>
+  props:  FormikProps<FormValues>
 ) {
   const {
     touched,
@@ -46,7 +44,6 @@ export default function DesiredValueForm(
             <HelperText>{errors.desiredValue}</HelperText>
           )}
         </Label>
-
         <Button type="submit">Calcular</Button>
       </Wrapper>
     </Form>
