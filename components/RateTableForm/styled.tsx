@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import SecondaryButton from '../shared/SecondaryButton';
 
 export const Form = styled.form`
   display: flex;
@@ -22,6 +23,7 @@ th:last-child, td:last-child {
     border: none;
 }
 
+
 `
 export const Th = styled.th`
 font-size: 25px;
@@ -34,6 +36,7 @@ margin: 0;
 export const Td = styled.td`
 
 `
-export const Button = styled.button`
+export const Button = styled(SecondaryButton)`
+
 
 `

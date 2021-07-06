@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import SecondaryButton from "../shared/SecondaryButton";
 
 interface InputProps {
   readonly border: string;
@@ -46,17 +47,8 @@ export const Wrapper = styled.div`
     flex-direction: row;
   }
 `;
-export const Button = styled.button`
-  height: 53px;
-  width: 160px;
-  font-size: 22px;
+export const Button = styled(SecondaryButton)`
   margin-top: 20px;
-  text-align: center;
-  border: none;
-  background-color: ${(props) => props.theme.colors.secondary.main};
-  color: ${(props) => props.theme.colors.text.secondary};
-  text-transform: capitalize;
-  border-radius: ${(props) => props.theme.input.borderRadius};
   @media (min-width: 480px) {
     margin-top: unset;
     margin-left: 20px;
