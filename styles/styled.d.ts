@@ -18,6 +18,16 @@ declare module 'styled-components' {
       }
       background: string;
     
-    };
+    }
+    input: {
+        borderRadius: string;
+        backgroundColor: {
+            primary: string;
+            secondary: string;
+
+        },
+        opacity: number;
+    }
+   
   }
 }
