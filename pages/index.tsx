@@ -1,5 +1,5 @@
 import Layout from "../components/Layout";
-import { ErrorMessage, Formik, FormikHelpers } from "formik";
+import { ErrorMessage, Formik, FormikHelpers, FormikErrors } from "formik";
 import DesiredValueForm  from '../components/DesiredValueForm';
 
 interface Values {
@@ -14,6 +14,15 @@ export default function Home() {
           initialValues={{
             desiredValue: 0,
           }}
+          validate ={
+            (values : Values) => {
+              let errors: FormikErrors<Values> = {};
+              if(values.desiredValue < 300 || values.desiredValue > 10000)  {
+                errors.desiredValue = "O valor do empréstimo deve ser maior que R$ 300,00 e menor que R$ 10.000,00"
+              }
+              return errors;
+            }
+          }
           onSubmit={(
             values: Values,
             { setSubmitting }: FormikHelpers<Values>

@@ -4,9 +4,7 @@ import { FormikProps } from "formik";
 interface FormValues {
   desiredValue: number;
 }
-
 interface OtherProps {
-    border: string;
   message: string;
 }
 export default function DesiredValueForm(
@@ -28,10 +26,10 @@ export default function DesiredValueForm(
           onChange={handleChange}
           onBlur={handleBlur}
           value={values.desiredValue}
-          border ={errors.desiredValue && "1px solid red"}
+          border={touched.desiredValue && errors.desiredValue && "1px solid red"}
           type="text"
           name="desiredValue"
-          placeholder= "R$ 0,00"
+          placeholder="R$ 0,00"
         />
         <Button type="submit">Calcular</Button>
       </Wrapper>
