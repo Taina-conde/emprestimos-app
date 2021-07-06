@@ -14,6 +14,7 @@ const appTheme: DefaultTheme = {
       main: "#777777",
       secondary: "#FFFFFF",
     },
+    background: '#F8F8F8'
   },
 };
 
