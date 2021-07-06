@@ -1,5 +1,9 @@
 import styled from "styled-components";
 
+interface InputProps {
+  readonly border: string;
+};
+
 export const Title = styled.h1`
   font-size: 40px;
   color: ${(props) => props.theme.colors.primary.main};
@@ -12,8 +16,8 @@ export const Form = styled.form`
   flex-direction: column;
   align-items: center;
 `;
-export const Input = styled.input`
-  border: none;
+export const Input = styled.input<InputProps>`
+  border: ${props => props.border || 'none'};
   padding: 10px;
   text-align: center;
   height: 62px;
@@ -22,6 +26,7 @@ export const Input = styled.input`
   background-color: ${(props) => props.theme.input.backgroundColor.primary};
   border-radius: ${(props) => props.theme.input.borderRadius};
   color: ${(props) => props.theme.colors.text.main};
+
 `;
 export const Wrapper = styled.div`
   display: flex;
