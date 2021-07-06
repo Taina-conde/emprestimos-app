@@ -21,9 +21,6 @@ interface State {
         comissionValue: number;
         contractType: string;
     }
-    solicitations: any;
-    clients: any;
-    rateTables: any;
 
 }
 
@@ -43,12 +40,7 @@ const initialState = {
         comissionValue: 0,
         contractType: "",
 
-    },
-    solicitations: [],
-    clients: [],
-    rateTables: []
-
-
+    }
   }
 
   function initStore(preloadedState = initialState) {
