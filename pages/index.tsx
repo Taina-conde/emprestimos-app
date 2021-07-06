@@ -1,5 +1,6 @@
 import Layout from "../components/Layout";
-import { Formik, Field, Form, FormikHelpers } from "formik";
+import { ErrorMessage, Formik, FormikHelpers } from "formik";
+import DesiredValueForm  from '../components/DesiredValueForm';
 
 interface Values {
   desiredValue: number;
@@ -9,7 +10,6 @@ export default function Home() {
   return (
     <Layout title="Simulação de taxas">
       <div>
-        <h1>Valor Desejado</h1>
         <Formik
           initialValues={{
             desiredValue: 0,
@@ -24,10 +24,8 @@ export default function Home() {
             }, 500);
           }}
         >
-          <Form>
-            <Field id="desiredValue" name="desiredValue" placeholder="R$ 0,00" />
-            <button type="submit">Submit</button>
-          </Form>
+          {(props) => <DesiredValueForm message = "Valor desejado" {...props}/>}
+          
         </Formik>
       </div>
     </Layout>
