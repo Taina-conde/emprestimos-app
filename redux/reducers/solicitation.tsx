@@ -7,7 +7,8 @@ interface Solicitation {
 const initialState = {
     desiredValue : 0,
 } as Solicitation
-const solicitationReducer =createReducer(initialState, (builder) => {
+
+export const solicitationReducer =createReducer(initialState, (builder) => {
     builder
     .addCase(setDesiredValue, (state, action) => {
         state.desiredValue = action.payload;
