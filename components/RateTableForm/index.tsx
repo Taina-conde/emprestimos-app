@@ -1,10 +1,12 @@
 import { Formik, FormikHelpers, FormikErrors } from "formik";
+import RateTable from './RateTable';
+import {Form, Button} from './styled';
 interface Values {
   rateTableId: string;
   installments: number;
   installmentValue: number;
 }
-export default function RateTable() {
+export default function RateTableForm() {
   return (
     <Formik
       initialValues={{
@@ -33,9 +35,8 @@ export default function RateTable() {
         values,
       }) => (
         <Form onSubmit={handleSubmit}>
-          
+          <RateTable/>
             <Button type="submit">Calcular</Button>
-          </Wrapper>
         </Form>
       )}
     </Formik>
