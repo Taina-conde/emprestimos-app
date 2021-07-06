@@ -15,6 +15,7 @@ declare module 'styled-components' {
       text: {
           main: string;
           secondary: string;
+          error: string;
       }
       background: string;
     

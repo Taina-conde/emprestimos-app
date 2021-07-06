@@ -13,6 +13,7 @@ const appTheme: DefaultTheme = {
     text: {
       main: "#777777",
       secondary: "#FFFFFF",
+      error: '#DF0101',
     },
     background: "#F8F8F8",
   },

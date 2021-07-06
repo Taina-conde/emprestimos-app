@@ -1,4 +1,12 @@
-import { Form, Input, Button, Title, Wrapper } from "./styled";
+import {
+  Form,
+  Input,
+  Button,
+  Title,
+  Wrapper,
+  HelperText,
+  Label,
+} from "./styled";
 import { FormikProps } from "formik";
 
 interface FormValues {
@@ -22,15 +30,23 @@ export default function DesiredValueForm(
     <Form onSubmit={handleSubmit}>
       <Title>Valor desejado</Title>
       <Wrapper>
-        <Input
-          onChange={handleChange}
-          onBlur={handleBlur}
-          value={values.desiredValue}
-          border={touched.desiredValue && errors.desiredValue && "1px solid red"}
-          type="text"
-          name="desiredValue"
-          placeholder="R$ 0,00"
-        />
+        <Label>
+          <Input
+            onChange={handleChange}
+            onBlur={handleBlur}
+            value={values.desiredValue}
+            border={
+              touched.desiredValue && errors.desiredValue && "1px solid red"
+            }
+            type="text"
+            name="desiredValue"
+            placeholder="R$ 0,00"
+          />
+          {touched.desiredValue && errors.desiredValue && (
+            <HelperText>{errors.desiredValue}</HelperText>
+          )}
+        </Label>
+
         <Button type="submit">Calcular</Button>
       </Wrapper>
     </Form>
