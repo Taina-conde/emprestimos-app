@@ -8,12 +8,15 @@ import {
   Label,
 } from "./styled";
 import { Formik, FormikHelpers, FormikErrors } from "formik";
+import {useAppDispatch} from "../../hooks";
+import { setDesiredValue } from "../../redux/slices/solicitation";
 
 interface Values {
   desiredValue: number;
 }
 
 export default function DesiredValueForm() {
+  const dispatch = useAppDispatch()
   return (
     <Formik
       initialValues={{
@@ -28,10 +31,11 @@ export default function DesiredValueForm() {
         return errors;
       }}
       onSubmit={(values: Values, { setSubmitting }: FormikHelpers<Values>) => {
-        setTimeout(() => {
-          alert(JSON.stringify(values, null, 2));
+          const { desiredValue } = values;
+          dispatch(setDesiredValue(Number(desiredValue)));
+          console.log(desiredValue)
           setSubmitting(false);
-        }, 500);
+        
       }}
     >
       {({
