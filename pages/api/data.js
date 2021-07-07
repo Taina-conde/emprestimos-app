@@ -1,5 +1,5 @@
 
-data = {
+const data = {
   rateTables: [
     {
       id: 1,
