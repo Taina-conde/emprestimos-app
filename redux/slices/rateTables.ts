@@ -15,8 +15,7 @@ interface RateTables {
     }[];
 }[]
 
-const initialState: RateTables = getRateTables()
-console.log(initialState)
+const initialState = getRateTables()
 
 
 const rateTablesSlice = createSlice({
@@ -24,7 +23,7 @@ const rateTablesSlice = createSlice({
     initialState,
     reducers: {
       receiveRateTables(state, action : PayloadAction<any[]>) {
-        state.rateTables = action.payload
+        state = action.payload
       },
      
     },

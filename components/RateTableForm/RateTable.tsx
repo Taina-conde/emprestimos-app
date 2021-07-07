@@ -1,13 +1,29 @@
 import { Td, Th, Tr, TableTitle, Table, TableHead, TableBody } from "./styled";
 import { useAppSelector } from "../../hooks";
 
-export default function RateTable() {
-  const rateTables = useAppSelector((state) => state);
-  console.log('ratetables', rateTables)
+interface RateTable {
+  id: number;
+}
+interface Installment {
+  id: number;
+  installments: number;
+  installmentInterest: number;
+  installmentValue: number;
+  fullValue: number;
+  comission: number;
+}
+
+export default function RateTable(props: RateTable) {
+  const { id } = props;
+  const rateTable = useAppSelector((state) => state.rateTables[id]);
+  console.log(rateTable)
+  const { installments, name } = rateTable;
+  console.log('installments', installments)
+
   return (
     <Table>
       <TableHead>
-        <TableTitle>Tabela</TableTitle>
+        <TableTitle>{name}</TableTitle>
         <Tr>
           <Th>Parcela</Th>
           <Th>Juros da Parcela</Th>
@@ -17,7 +33,7 @@ export default function RateTable() {
         </Tr>
       </TableHead>
       <TableBody>
-        <Tr></Tr>
+        
       </TableBody>
     </Table>
   );

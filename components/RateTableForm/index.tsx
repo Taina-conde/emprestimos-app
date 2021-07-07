@@ -1,12 +1,29 @@
 import { Formik, FormikHelpers, FormikErrors } from "formik";
 import RateTable from "./RateTable";
 import { Form, Button, FixedBar, Text } from "./styled";
+import { useAppSelector } from "../../hooks";
+
 interface Values {
   rateTableId: string;
   installments: number;
   installmentValue: number;
 }
+
+interface Table {
+  id: number;
+    name: string;
+    installments: {
+        id: number;
+        installments: number;
+        installmentInterest: number;
+        installmentValue: number;
+        fullValue: number;
+        comission: number;
+    }[];
+}
+
 export default function RateTableForm() {
+  const rateTables = useAppSelector((state) => state.rateTables);
   return (
     <Formik
       initialValues={{
@@ -35,7 +52,7 @@ export default function RateTableForm() {
         values,
       }) => (
         <Form onSubmit={handleSubmit}>
-          <RateTable />
+          {rateTables.map((table: Table) => (<RateTable key = {table.id} id = {table.id}/>) )}
           <FixedBar>
             <Text>Nome: </Text>
             <Text>Parcelas: </Text>

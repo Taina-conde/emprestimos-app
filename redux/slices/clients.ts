@@ -2,21 +2,19 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { getClients } from '../../pages/api/helpers';
 
 
-interface RateTables {
+interface Clients {
     id: number;
     name: string;
-    installments: {
-        id: number;
-        installments: number;
-        installmentInterest: number;
-        installmentValue: number;
-        fullValue: number;
-        comission: number;
-    }[];
-}[]
+    phone: string;
+    cpf: string;
+    bank: {
+      label: string;
+      accountTypeLabel: string;
+      accountNumber: string;
+    };
+  }[];
 
 const initialState = getClients()
-console.log(initialState)
 
 
 const clientsSlice = createSlice({
