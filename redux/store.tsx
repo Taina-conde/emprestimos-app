@@ -2,9 +2,14 @@ import { useMemo } from "react";
 import { configureStore } from "@reduxjs/toolkit";
 import logger from "redux-logger";
 import solicitationReducer from "./slices/solicitation";
+import rateTablesReducer from "./slices/rateTables";
+import clientsReducer from './slices/clients';
 import { getRateTables, getClients } from "../pages/api/helpers";
 
+
 let store;
+const rateTables = getRateTables();
+const clients = getClients();
 
 interface State {
   solicitation: {
@@ -63,14 +68,16 @@ const initialState = {
     comissionValue: 0,
     contractType: "",
   },
-  rateTables: getRateTables(),
-  clients: getClients()
+  rateTables: rateTables,
+  clients: clients,
 };
 
 function initStore(preloadedState = initialState) {
   return configureStore({
     reducer: {
       solicitation: solicitationReducer,
+      rateTables: rateTablesReducer,
+      clients: clientsReducer
     },
     middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(logger),
     preloadedState,
