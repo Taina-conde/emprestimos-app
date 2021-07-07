@@ -11,15 +11,15 @@ interface Values {
 
 interface Table {
   id: number;
-    name: string;
-    installments: {
-        id: number;
-        installments: number;
-        installmentInterest: number;
-        installmentValue: number;
-        fullValue: number;
-        comission: number;
-    }[];
+  name: string;
+  installments: {
+    id: number;
+    installments: number;
+    installmentInterest: number;
+    installmentValue: number;
+    fullValue: number;
+    comission: number;
+  }[];
 }
 
 export default function RateTableForm() {
@@ -52,7 +52,14 @@ export default function RateTableForm() {
         values,
       }) => (
         <Form onSubmit={handleSubmit}>
-          {rateTables.map((table: Table) => (<RateTable key = {table.id} id = {table.id}/>) )}
+          {rateTables.map((table: Table) => (
+            <RateTable
+              key={table.id}
+              id={table.id}
+              name={table.name}
+              installments={table.installments}
+            />
+          ))}
           <FixedBar>
             <Text>Nome: </Text>
             <Text>Parcelas: </Text>

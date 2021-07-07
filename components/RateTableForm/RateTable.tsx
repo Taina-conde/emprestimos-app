@@ -1,8 +1,16 @@
 import { Td, Th, Tr, TableTitle, Table, TableHead, TableBody } from "./styled";
-import { useAppSelector } from "../../hooks";
 
 interface RateTable {
   id: number;
+  name: string;
+  installments: {
+    id: number;
+    installments: number;
+    installmentInterest: number;
+    installmentValue: number;
+    fullValue: number;
+    comission: number;
+  }[];
 }
 interface Installment {
   id: number;
@@ -14,11 +22,8 @@ interface Installment {
 }
 
 export default function RateTable(props: RateTable) {
-  const { id } = props;
-  const rateTable = useAppSelector((state) => state.rateTables[id]);
-  console.log(rateTable)
-  const { installments, name } = rateTable;
-  console.log('installments', installments)
+  const { id, name, installments } = props;
+  console.log("installments", installments);
 
   return (
     <Table>
@@ -33,7 +38,15 @@ export default function RateTable(props: RateTable) {
         </Tr>
       </TableHead>
       <TableBody>
-        
+        {installments.map((installment: Installment) => (
+          <Tr key={installment.id}>
+            <Td>{installment.installments}</Td>
+            <Td>{installment.installmentInterest}</Td>
+            <Td>valor parcela</Td>
+            <Td>valor total</Td>
+            <Td>comissao parceiro</Td>
+          </Tr>
+        ))}
       </TableBody>
     </Table>
   );
