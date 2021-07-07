@@ -21,11 +21,7 @@ export const TableTitle = styled.caption`
   display: table-caption;
 `;
 export const TableHead = styled.thead`
-background-color: ${(props) => props.theme.input.backgroundColor.primary};
-  
-  border: 1px solid #e6e6e6;
-
-    
+background-color: ${(props) => props.theme.input.backgroundColor.primary};    
 `;
 export const TableBody = styled.tbody`
 tr:hover {
@@ -35,18 +31,19 @@ tr:hover {
 
 `;
 export const Tr = styled.tr`
-border: 1px solid #e6e6e6;
-  th:last-child,
-  td:last-child {
-    border: none;
-  }
+td:first-child, th:first-child {
+    border-left:  1px solid #e6e6e6;
+}
+
 `;
 export const Th = styled.th`
   font-size: 25px;
   font-weight: bold;
-  border-right: 1px solid #e6e6e6;
   padding: 10px;
   margin: 0;
+  border-top: 1px solid #e6e6e6;
+  border-right: 1px solid #e6e6e6;
+  border-bottom: 1px solid #e6e6e6;
 `;
 export const Td = styled.td`
 background-color: transparent;
@@ -54,10 +51,7 @@ padding: 15px;
 text-align: center;
 font-size: 23px;
 border-right: 1px solid #e6e6e6;
-
-
-
-
+border-bottom: 1px solid #e6e6e6;
 
 `;
 export const Button = styled(SecondaryButton)``;
