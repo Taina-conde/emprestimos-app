@@ -21,7 +21,7 @@ const appTheme: DefaultTheme = {
     borderRadius: "5px",
     backgroundColor: {
       primary: "#F8F8F8",
-      secondary: "#EFDF4B",
+      secondary: 'rgba(239, 223, 75, .23)',
     },
     opacity: 0.23,
   },
