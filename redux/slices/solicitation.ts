@@ -1,21 +1,56 @@
-import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 interface Solicitation {
-    desiredValue: number;
+  desiredValue: number;
+  installmentInterest: number;
+  installmentInterestValue: number;
+  comission: number;
+  comissionValue: number;
+  installmentValue: number;
+  totalLoan: number;
+  installmentId: number;
+  rateTableId: number;
+}
+interface InstallmentInfo {
+  installmentInterest: number;
+  installmentInterestValue: number;
+  comission: number;
+  comissionValue: number;
+  installmentValue: number;
+  totalLoan: number;
+  installmentId: number;
+  rateTableId: number;
 }
 const initialState = {
-    desiredValue : 0,
-} as Solicitation
+  desiredValue: 0,
+  installmentInterest: 0,
+  installmentInterestValue: 0,
+  comission: 0,
+  comissionValue: 0,
+  installmentValue: 0,
+  totalLoan: 0,
+  installmentId: 0,
+  rateTableId: 0,
+} as Solicitation;
 
 const solicitationSlice = createSlice({
-    name: 'solicitation',
-    initialState,
-    reducers: {
-      setDesiredValue(state, action : PayloadAction<number>) {
-        state.desiredValue = action.payload
-      },
-     
+  name: "solicitation",
+  initialState,
+  reducers: {
+    setDesiredValue(state, action: PayloadAction<number>) {
+      state.desiredValue = action.payload;
     },
-  })
-  export const { setDesiredValue} = solicitationSlice.actions
-  export default solicitationSlice.reducer
+    setChosenInstallment(state, action: PayloadAction<InstallmentInfo>) {
+      state.installmentInterest = action.payload.installmentInterest
+      state.installmentInterestValue = action.payload.installmentInterestValue
+      state.comission = action.payload.comission
+      state.comissionValue = action.payload.comissionValue
+      state.installmentValue = action.payload.installmentValue
+      state.totalLoan = action.payload.totalLoan
+      state.installmentId = action.payload.installmentId
+      state.rateTableId = action.payload.rateTableId
+  },
+}
+});
+export const { setDesiredValue, setChosenInstallment } = solicitationSlice.actions;
+export default solicitationSlice.reducer;

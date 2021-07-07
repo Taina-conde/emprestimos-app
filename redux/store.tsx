@@ -13,12 +13,12 @@ const clients = getClients();
 
 interface State {
   solicitation: {
-    id: string;
-    clientId: string;
+    id: number;
+    clientId: number;
     cardNumber: string;
     desiredValue: number;
-    rateTableId: string;
-    installmentId: string;
+    rateTableId: number;
+    installmentId: number;
     installmentInterest: number;
     installmentInterestValue: number;
     totalLoan: number;
@@ -54,12 +54,12 @@ interface State {
 
 const initialState = {
   solicitation: {
-    id: "",
-    clientId: "",
+    id: 0,
+    clientId: 0,
     cardNumber: "",
     desiredValue: 0,
-    rateTableId: "",
-    installmentId: "",
+    rateTableId: 0,
+    installmentId: 0,
     installmentInterest: 0,
     installmentInterestValue: 0,
     totalLoan: 0,
