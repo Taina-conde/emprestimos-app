@@ -4,10 +4,7 @@ export default function RateTable() {
   return (
     <Table>
       <TableHead>
-        <Tr>
           <TableTitle>Tabela</TableTitle>
-        </Tr>
-
         <Tr>
           <Th>Parcela</Th>
           <Th>Juros da Parcela</Th>

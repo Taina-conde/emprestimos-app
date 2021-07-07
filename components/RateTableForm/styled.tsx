@@ -14,13 +14,18 @@ export const Table = styled.table`
   border: 1px solid #e6e6e6;
   border-radius: 0px 5px 5px 5px;
 `;
-export const TableTitle = styled.h3`
+export const TableTitle = styled.caption`
   color: ${(props) => props.theme.colors.primary.main};
   font-size: 29px;
   width: 100%;
   text-align: center;
+  font-weight: bold;
+  display: block;
+  margin: 20px 0;
 `;
 export const TableHead = styled.thead`
+display: flex;
+flex-direction: column;
     
 `;
 export const TableBody = styled.tbody`
