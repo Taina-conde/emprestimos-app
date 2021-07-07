@@ -79,7 +79,7 @@ const data = {
       comission: 5.5,
       comissionValue: 122.21,
       installmentValue: 1338.76,
-      cardNumbe: "4012001037141112",
+      cardNumber: "4012001037141112",
       desiredValue: 2222,
       totalLoan: 2677.51,
       installmentId: 4,
