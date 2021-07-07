@@ -9,29 +9,29 @@ export const Form = styled.form`
 `;
 export const Table = styled.table`
   color: ${(props) => props.theme.colors.text.main};
-  background-color: ${(props) => props.theme.input.backgroundColor.primary};
   width: 100%;
-  border: 1px solid #e6e6e6;
   border-radius: 0px 5px 5px 5px;
 `;
 export const TableTitle = styled.caption`
   color: ${(props) => props.theme.colors.primary.main};
   font-size: 29px;
-  width: 100%;
   text-align: center;
   font-weight: bold;
-  display: block;
   margin: 20px 0;
+  display: table-caption;
 `;
 export const TableHead = styled.thead`
-display: flex;
-flex-direction: column;
+background-color: ${(props) => props.theme.input.backgroundColor.primary};
+  
+  border: 1px solid #e6e6e6;
+
     
 `;
 export const TableBody = styled.tbody`
-background-color: ${props => props.theme.colors.background};
+
 `;
 export const Tr = styled.tr`
+border: 1px solid #e6e6e6;
   th:last-child,
   td:last-child {
     border: none;
@@ -44,7 +44,15 @@ export const Th = styled.th`
   padding: 10px;
   margin: 0;
 `;
-export const Td = styled.td``;
+export const Td = styled.td`
+background-color: ${props => props.theme.colors.background};
+padding: 15px;
+text-align: center;
+font-size: 23px;
+
+
+
+`;
 export const Button = styled(SecondaryButton)``;
 export const FixedBar = styled.div`
   width: 100%;

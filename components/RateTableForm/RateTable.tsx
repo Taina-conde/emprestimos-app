@@ -27,8 +27,9 @@ export default function RateTable(props: RateTable) {
 
   return (
     <Table>
-      <TableHead>
         <TableTitle>{name}</TableTitle>
+      <TableHead>
+        
         <Tr>
           <Th>Parcela</Th>
           <Th>Juros da Parcela</Th>
