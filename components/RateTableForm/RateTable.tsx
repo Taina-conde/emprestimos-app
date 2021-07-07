@@ -1,4 +1,5 @@
 import { Td, Th, Tr, TableTitle, Table, TableHead, TableBody } from "./styled";
+import TableRow  from './TableRow';
 import { useAppSelector } from "../../hooks";
 
 interface RateTable {
@@ -24,15 +25,15 @@ interface Installment {
 
 export default function RateTable(props: RateTable) {
   const { id, name, installments } = props;
-  const desiredValue = useAppSelector(state => state.solicitation.desiredValue)
+  const desiredValue = useAppSelector(
+    (state) => state.solicitation.desiredValue
+  );
   console.log("installments", installments);
-  
 
   return (
     <Table>
-        <TableTitle>{name}</TableTitle>
+      <TableTitle>{name}</TableTitle>
       <TableHead>
-        
         <Tr>
           <Th>Parcela</Th>
           <Th>Juros da Parcela</Th>
@@ -43,15 +44,10 @@ export default function RateTable(props: RateTable) {
       </TableHead>
       <TableBody>
         {installments.map((installment: Installment) => {
-            return (
-          <Tr key={installment.id}>
-            <Td>{installment.installments}</Td>
-            <Td>{installment.installmentInterest}%</Td>
-            <Td>R$ {installment.installmentValue}</Td>
-            <Td>R$ {installment.fullValue}</Td>
-            <Td>R$ {installment.comission}</Td>
-          </Tr>
-        )})}
+          return (
+            <TableRow key = {installment.id} {...installment}/>
+          );
+        })}
       </TableBody>
     </Table>
   );
