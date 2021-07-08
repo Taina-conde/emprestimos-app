@@ -2,11 +2,19 @@ import { Formik, FormikHelpers, FormikErrors } from "formik";
 import RateTable from "./RateTable";
 import { Form, Button, FixedBar, Text } from "./styled";
 import { useAppSelector } from "../../hooks";
+import { getRateTableById, getInstallmentById } from "../../pages/api/helpers";
 
 interface Values {
-  rateTableId: string;
   installments: number;
   installmentValue: number;
+}
+interface Installment {
+  id: number;
+  installments: number;
+  installmentInterest: number;
+  installmentValue: number;
+  fullValue: number;
+  comission: number;
 }
 
 interface Table {
@@ -24,10 +32,21 @@ interface Table {
 
 export default function RateTableForm() {
   const rateTables = useAppSelector((state) => state.rateTables);
+  const solicitation = useAppSelector((state) => state.solicitation);
+  const rateTable: Table | undefined =
+    solicitation.rateTableId !== 0
+      ? getRateTableById(solicitation.rateTableId)
+      : undefined;
+  const installment: Installment | undefined =
+    solicitation.rateTableId !== 0
+      ? getInstallmentById(solicitation.rateTableId, solicitation.installmentId)
+      : undefined;
+  console.log("rate table aqui", rateTable);
+  console.log("solicitationn aqui", solicitation);
+
   return (
     <Formik
       initialValues={{
-        rateTableId: "",
         installments: 0,
         installmentValue: 0,
       }}
@@ -60,12 +79,16 @@ export default function RateTableForm() {
               installments={table.installments}
             />
           ))}
-          <FixedBar>
-            <Text>Nome: </Text>
-            <Text>Parcelas: </Text>
-            <Text>Valor da Parcela: </Text>
-            <Button type="submit">Avançar</Button>
-          </FixedBar>
+          {rateTable !== undefined && (
+            <FixedBar>
+              <Text>Nome: {rateTable.name} </Text>
+              <Text>
+                Parcelas: {installment.installments}
+              </Text>
+              <Text>Valor da Parcela: {solicitation.installmentValue}</Text>
+              <Button type="submit">Avançar</Button>
+            </FixedBar>
+          )}
         </Form>
       )}
     </Formik>
