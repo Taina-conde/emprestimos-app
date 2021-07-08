@@ -10,6 +10,7 @@ import Input from "../shared/Input";
 import { Formik, FormikHelpers, FormikErrors } from "formik";
 import { useAppDispatch } from "../../hooks";
 import { getClientByCpf } from "../../pages/api/helpers";
+import { setClientId } from '../../redux/slices/solicitation';
 
 interface Values {
   cpf: string;
@@ -63,6 +64,11 @@ export default function ClientSearch() {
           alert("submit clicked");
           // getClientByCpf(cpf)
           searchResult = getClientByCpf(cpf);
+          if (typeof searchResult !== 'string') {
+            const { id } = searchResult;
+            //dispatch action to update clientId
+            dispatch(setClientId(id))
+          }
           console.log('searchResult', searchResult)
           setSubmitting(false);
         }}

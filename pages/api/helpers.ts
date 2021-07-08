@@ -33,14 +33,18 @@ export function getInstallmentById(rateTableId: number, id: number) {
 
 }
 export function getClientByCpf(cpf:string) : Client | string {
-    const clients = _.get(data, 'clients');
+    const clients = getClients()
     const clientSearched = _.filter(clients, {cpf})
     if (clientSearched.length === 0 ) {
         return "Cliente não encontrado"
     }
     return clientSearched[0];
 }
-
+export function getClientById(id: number) : Client {
+    const clients = getClients();
+    const client = _.filter(clients, { id })
+    return client[0]
+}
 
 
 
