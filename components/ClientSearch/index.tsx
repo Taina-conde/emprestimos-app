@@ -16,7 +16,9 @@ export default function ClientSearch() {
       }}
       validate={(values: Values) => {
         let errors: FormikErrors<Values> = {};
-        if (values.cpf.length !== 11) {
+        if(!values.cpf) {
+            errors.cpf = "Campo obrigatório"
+        } else if (values.cpf.length !== 11) {
           errors.cpf = "O CPF deve conter 11 números";
         }
         return errors;
