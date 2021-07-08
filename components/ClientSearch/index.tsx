@@ -1,12 +1,12 @@
 import {
     Form,
-    Input,
     Button,
     Title,
     Wrapper,
     HelperText,
     Label,
   } from "./styled";
+  import Input from '../shared/Input';
   import { Formik, FormikHelpers, FormikErrors } from "formik";
   import {useAppDispatch} from "../../hooks";
 

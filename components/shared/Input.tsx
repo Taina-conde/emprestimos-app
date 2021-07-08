@@ -3,7 +3,7 @@ import styled from "styled-components";
 interface InputProps {
     readonly border: string;
 }
-export const Input = styled.input<InputProps>`
+const Input = styled.input<InputProps>`
   border: ${(props) => props.border || "none"};
   padding: 10px;
   text-align: center;
@@ -14,3 +14,4 @@ export const Input = styled.input<InputProps>`
   border-radius: ${(props) => props.theme.input.borderRadius};
   color: ${(props) => props.theme.colors.text.main};
 `;
+export default Input;
