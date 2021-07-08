@@ -8,7 +8,9 @@ interface OtherProps {
 }
 
 export default function ClientSearchResult(props: OtherProps ) {
+    const client = getClientById(props.clientId)
   return <Wrapper>
+      
 
       
   </Wrapper>;
