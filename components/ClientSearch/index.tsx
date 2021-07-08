@@ -8,7 +8,7 @@ import {
 } from "./styled";
 import Input from "../shared/Input";
 import { Formik, FormikHelpers, FormikErrors } from "formik";
-import { useAppDispatch } from "../../hooks";
+import { useAppDispatch, useAppSelector } from "../../hooks";
 import { getClientByCpf } from "../../pages/api/helpers";
 import { setClientId } from '../../redux/slices/solicitation';
 
@@ -29,6 +29,7 @@ interface Client {
 
 export default function ClientSearch() {
   const dispatch = useAppDispatch();
+  const solicitation = useAppSelector(state => state.solicitation);
   let searchResult: Client | string;
   let client: Client = {
     id: 0,
@@ -99,6 +100,7 @@ export default function ClientSearch() {
               <Button type="submit">Buscar</Button>
             </Wrapper>
             {touched.cpf && errors.cpf && <HelperText>{errors.cpf}</HelperText>}
+
           </Form>
         )}
       </Formik>

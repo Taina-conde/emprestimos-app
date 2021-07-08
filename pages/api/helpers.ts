@@ -36,13 +36,16 @@ export function getClientByCpf(cpf:string) : Client | string {
     const clients = getClients()
     const clientSearched = _.filter(clients, {cpf})
     if (clientSearched.length === 0 ) {
-        return "Cliente não encontrado"
+        return "Cliente não encontrado."
     }
     return clientSearched[0];
 }
-export function getClientById(id: number) : Client {
+export function getClientById(id: number) : Client | string {
     const clients = getClients();
     const client = _.filter(clients, { id })
+    if (client.length === 0 ) {
+        return 'Cliente não encontrado.'
+    }
     return client[0]
 }
 
