@@ -3,6 +3,7 @@ import { configureStore } from "@reduxjs/toolkit";
 import logger from "redux-logger";
 import solicitationReducer from "./slices/solicitation";
 import rateTablesReducer from "./slices/rateTables";
+import searchResultReducer from "./slices/searchResult";
 import clientsReducer from './slices/clients';
 import { getRateTables, getClients } from "../pages/api/helpers";
 
@@ -77,7 +78,8 @@ function initStore(preloadedState = initialState) {
     reducer: {
       solicitation: solicitationReducer,
       rateTables: rateTablesReducer,
-      clients: clientsReducer
+      clients: clientsReducer,
+      searchResult: searchResultReducer,
     },
     middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(logger),
     preloadedState,

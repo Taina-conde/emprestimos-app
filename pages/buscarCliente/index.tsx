@@ -22,7 +22,7 @@ export default function BuscarCliente() {
     <Layout title="Solicitar Empréstimo">
     
         <ClientSearch/>
-        <ClientSearchResult result = {result}/>
+        { solicitation.clientId !== 0 && <ClientSearchResult result = {result}/> }
       
     </Layout>
   );
