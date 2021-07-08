@@ -1,5 +1,6 @@
 import Layout from "../../components/Layout";
 import ClientSearch from "../../components/ClientSearch";
+import ClientSearchResult from '../../components/ClientSearchResult';
 import { useAppSelector, useAppDispatch } from "../../hooks";
 
 

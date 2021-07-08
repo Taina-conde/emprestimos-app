@@ -1,15 +1,45 @@
-import { Form, Button, Title, Wrapper, HelperText, Label } from "./styled";
+import {
+  Form,
+  Button,
+  Title,
+  Wrapper,
+  HelperText,
+  Label,
+} from "./styled";
 import Input from "../shared/Input";
 import { Formik, FormikHelpers, FormikErrors } from "formik";
 import { useAppDispatch } from "../../hooks";
-import ClientFound from './ClientFound';
+import { getClientByCpf } from "../../pages/api/helpers";
 
 interface Values {
   cpf: string;
 }
+interface Client {
+  id: number;
+  name: string;
+  phone: string;
+  cpf: string;
+  bank: {
+    label: string;
+    accountTypeLabel: string;
+    accountNumber: string;
+  };
+}
 
 export default function ClientSearch() {
   const dispatch = useAppDispatch();
+  let searchResult: Client | string;
+  let client: Client = {
+    id: 0,
+    name: "",
+    phone: "",
+    cpf: "",
+    bank: {
+      label: "",
+      accountTypeLabel: "",
+      accountNumber: "",
+    },
+  };
   return (
     <div>
       <Formik
@@ -31,7 +61,9 @@ export default function ClientSearch() {
         ) => {
           const { cpf } = values;
           alert("submit clicked");
-          // dispatch action
+          // getClientByCpf(cpf)
+          searchResult = getClientByCpf(cpf);
+          console.log('searchResult', searchResult)
           setSubmitting(false);
         }}
       >
@@ -64,7 +96,7 @@ export default function ClientSearch() {
           </Form>
         )}
       </Formik>
-      <ClientFound/>
+      
     </div>
   );
 }

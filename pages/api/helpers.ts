@@ -1,6 +1,16 @@
 import data from './data';
 import _ from "lodash";
-
+interface Client {
+    id: number;
+    name: string;
+    phone: string;
+    cpf: string;
+    bank: {
+      label: string;
+      accountTypeLabel: string;
+      accountNumber: string;
+    };
+  }
 export function getRateTables() {
     return _.get(data, 'rateTables');
 }
@@ -22,6 +32,15 @@ export function getInstallmentById(rateTableId: number, id: number) {
     return installment[0]
 
 }
+export function getClientByCpf(cpf:string) : Client | string {
+    const clients = _.get(data, 'clients');
+    const clientSearched = _.filter(clients, {cpf})
+    if (clientSearched.length === 0 ) {
+        return "Cliente não encontrado"
+    }
+    return clientSearched[0];
+}
+
 
 
 
