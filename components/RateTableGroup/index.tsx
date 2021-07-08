@@ -2,6 +2,7 @@ import RateTable from "./RateTable";
 import { Wrapper, Button, FixedBar, Text } from "./styled";
 import { useAppSelector } from "../../hooks";
 import { getRateTableById, getInstallmentById } from "../../pages/api/helpers";
+import Link from "next/link";
 
 interface Installment {
   id: number;
@@ -38,28 +39,25 @@ export default function RateTableGroup() {
       : undefined;
 
   return (
-    
-        <Wrapper>
-          {rateTables.map((table: Table) => (
-            <RateTable
-              key={table.id}
-              id={table.id}
-              name={table.name}
-              installments={table.installments}
-            />
-          ))}
-          {rateTable !== undefined && (
-            <FixedBar>
-              <Text>Nome: {rateTable.name} </Text>
-              <Text>
-                Parcelas: {installment.installments}
-              </Text>
-              <Text>Valor da Parcela: {solicitation.installmentValue}</Text>
-              <Button type="button">Avançar</Button>
-            </FixedBar>
-          )}
-        </Wrapper>
-      
-   
+    <Wrapper>
+      {rateTables.map((table: Table) => (
+        <RateTable
+          key={table.id}
+          id={table.id}
+          name={table.name}
+          installments={table.installments}
+        />
+      ))}
+      {rateTable !== undefined && (
+        <FixedBar>
+          <Text>Nome: {rateTable.name} </Text>
+          <Text>Parcelas: {installment.installments}</Text>
+          <Text>Valor da Parcela: {solicitation.installmentValue}</Text>
+          <Link href = '/buscarCliente'>
+            <Button type="button">Avançar</Button>
+          </Link>
+        </FixedBar>
+      )}
+    </Wrapper>
   );
 }
