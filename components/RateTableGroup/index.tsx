@@ -1,13 +1,8 @@
-import { Formik, FormikHelpers, FormikErrors } from "formik";
 import RateTable from "./RateTable";
-import { Form, Button, FixedBar, Text } from "./styled";
+import { Wrapper, Button, FixedBar, Text } from "./styled";
 import { useAppSelector } from "../../hooks";
 import { getRateTableById, getInstallmentById } from "../../pages/api/helpers";
 
-interface Values {
-  installments: number;
-  installmentValue: number;
-}
 interface Installment {
   id: number;
   installments: number;
@@ -30,7 +25,7 @@ interface Table {
   }[];
 }
 
-export default function RateTableForm() {
+export default function RateTableGroup() {
   const rateTables = useAppSelector((state) => state.rateTables);
   const solicitation = useAppSelector((state) => state.solicitation);
   const rateTable: Table | undefined =
@@ -41,36 +36,10 @@ export default function RateTableForm() {
     solicitation.rateTableId !== 0
       ? getInstallmentById(solicitation.rateTableId, solicitation.installmentId)
       : undefined;
-  console.log("rate table aqui", rateTable);
-  console.log("solicitationn aqui", solicitation);
 
   return (
-    <Formik
-      initialValues={{
-        installments: 0,
-        installmentValue: 0,
-      }}
-      validate={(values: Values) => {
-        let errors: FormikErrors<Values> = {};
-
-        return errors;
-      }}
-      onSubmit={(values: Values, { setSubmitting }: FormikHelpers<Values>) => {
-        setTimeout(() => {
-          alert(JSON.stringify(values, null, 2));
-          setSubmitting(false);
-        }, 500);
-      }}
-    >
-      {({
-        handleSubmit,
-        handleChange,
-        handleBlur,
-        touched,
-        errors,
-        values,
-      }) => (
-        <Form onSubmit={handleSubmit}>
+    
+        <Wrapper>
           {rateTables.map((table: Table) => (
             <RateTable
               key={table.id}
@@ -89,8 +58,8 @@ export default function RateTableForm() {
               <Button type="submit">Avançar</Button>
             </FixedBar>
           )}
-        </Form>
-      )}
-    </Formik>
+        </Wrapper>
+      
+   
   );
 }

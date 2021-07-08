@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import SecondaryButton from "../shared/SecondaryButton";
 
-export const Form = styled.form`
+export const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -21,20 +21,18 @@ export const TableTitle = styled.caption`
   display: table-caption;
 `;
 export const TableHead = styled.thead`
-background-color: ${(props) => props.theme.input.backgroundColor.primary};    
+  background-color: ${(props) => props.theme.input.backgroundColor.primary};
 `;
 export const TableBody = styled.tbody`
-tr:hover {
-    background-color: ${props => props.theme.input.backgroundColor.secondary};
-   
-}
-
+  tr:hover {
+    background-color: ${(props) => props.theme.input.backgroundColor.secondary};
+  }
 `;
 export const Tr = styled.tr`
-td:first-child, th:first-child {
-    border-left:  1px solid #e6e6e6;
-}
-
+  td:first-child,
+  th:first-child {
+    border-left: 1px solid #e6e6e6;
+  }
 `;
 export const Th = styled.th`
   font-size: 25px;
@@ -46,13 +44,12 @@ export const Th = styled.th`
   border-bottom: 1px solid #e6e6e6;
 `;
 export const Td = styled.td`
-background-color: transparent;
-padding: 15px;
-text-align: center;
-font-size: 23px;
-border-right: 1px solid #e6e6e6;
-border-bottom: 1px solid #e6e6e6;
-
+  background-color: transparent;
+  padding: 15px;
+  text-align: center;
+  font-size: 23px;
+  border-right: 1px solid #e6e6e6;
+  border-bottom: 1px solid #e6e6e6;
 `;
 export const Button = styled(SecondaryButton)``;
 export const FixedBar = styled.div`
