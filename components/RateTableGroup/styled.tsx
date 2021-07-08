@@ -6,11 +6,15 @@ export const Wrapper = styled.div`
   flex-direction: column;
   align-items: center;
   margin-top: 40px;
+  table:last-of-type {
+    padding-bottom: 150px;
+  }
 `;
 export const Table = styled.table`
   color: ${(props) => props.theme.colors.text.main};
   width: 100%;
   border-radius: 0px 5px 5px 5px;
+ 
 `;
 export const TableTitle = styled.caption`
   color: ${(props) => props.theme.colors.primary.main};
@@ -24,6 +28,8 @@ export const TableHead = styled.thead`
   background-color: ${(props) => props.theme.input.backgroundColor.primary};
 `;
 export const TableBody = styled.tbody`
+
+  
   tr:hover {
     background-color: ${(props) => props.theme.input.backgroundColor.secondary};
   }
