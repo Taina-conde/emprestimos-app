@@ -1,8 +1,5 @@
 import { Wrapper, ClientNotFound, ClientBox, ClientName, ClientCpf} from "./styled";
 import PrimaryButton from '../shared/PrimaryButton';
-import ClientFound from "./ClientFound";
-import { useAppDispatch } from "../../hooks";
-import { getClientById } from "../../pages/api/helpers";
 
 interface Client {
   id: number;
