@@ -1,21 +1,38 @@
-import { Wrapper, ClientNotFound } from "./styled";
-import  ClientFound  from "./ClientFound";
+import { Wrapper, ClientNotFound, ClientBox, ClientName, ClientCpf} from "./styled";
+import PrimaryButton from '../shared/PrimaryButton';
+import ClientFound from "./ClientFound";
 import { useAppDispatch } from "../../hooks";
 import { getClientById } from "../../pages/api/helpers";
 
+interface Client {
+  id: number;
+  name: string;
+  phone: string;
+  cpf: string;
+  bank: {
+    label: string;
+    accountTypeLabel: string;
+    accountNumber: string;
+  };
+}
 interface OtherProps {
-  clientId: number;
+  result: Client | string;
 }
 
 export default function ClientSearchResult(props: OtherProps) {
-  const result = getClientById(props.clientId);
-  console.log('result', result)
+  const { result } = props;
+  console.log("result dentro do clientsearchresult", result);
   return (
     <Wrapper>
       {typeof result === "string" ? (
         <ClientNotFound>{result}</ClientNotFound>
       ) : (
-        <ClientFound {...result} />
+        <ClientBox>
+          <div>Cliente encontrado:</div>
+          <ClientCpf>{result.cpf}</ClientCpf>
+          <ClientName>{result.name}</ClientName>
+          <PrimaryButton>Solicitar</PrimaryButton>
+        </ClientBox>
       )}
     </Wrapper>
   );

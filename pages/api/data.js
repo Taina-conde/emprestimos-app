@@ -51,7 +51,7 @@ const data = {
       id: 1,
       name: "Teste Cliente",
       phone: "71999999999",
-      cpf: "9999999999",
+      cpf: "99999999999",
       bank: {
         label: "003 - Banco da Amazonia S.A.",
         accountTypeLabel: "Conta Corrente",
@@ -62,7 +62,7 @@ const data = {
       id: 1,
       name: "Teste Cliente",
       phone: "71222222222",
-      cpf: "2222222229",
+      cpf: "22222222299",
       bank: {
         label: "003 - Banco da Amazonia S.A.",
         accountTypeLabel: "Conta Corrente",
