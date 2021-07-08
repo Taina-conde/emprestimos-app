@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import PrimaryButton from '../shared/PrimaryButton';
 
 export const Title = styled.h1`
   font-size: 33px;
@@ -33,7 +34,7 @@ export const Wrapper = styled.div`
     flex-direction: row;
   }
 `;
-export const Button = styled(SecondaryButton)`
+export const Button = styled(PrimaryButton)`
   margin-top: 20px;
   @media (min-width: 480px) {
     margin-top: unset;
