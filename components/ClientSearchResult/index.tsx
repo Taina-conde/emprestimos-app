@@ -1,5 +1,11 @@
-import { Wrapper, ClientNotFound, ClientBox, ClientName, ClientCpf} from "./styled";
-import PrimaryButton from '../shared/PrimaryButton';
+import {
+  Wrapper,
+  ClientNotFound,
+  ClientBox,
+  ClientName,
+  ClientCpf,
+} from "./styled";
+import PrimaryButton from "../shared/PrimaryButton";
 
 interface Client {
   id: number;
@@ -20,17 +26,17 @@ export default function ClientSearchResult(props: OtherProps) {
   const { result } = props;
   console.log("result dentro do clientsearchresult", result);
   return (
-    <Wrapper>
+    <ClientBox>
       {typeof result === "string" ? (
         <ClientNotFound>{result}</ClientNotFound>
       ) : (
-        <ClientBox>
+        <Wrapper>
           <div>Cliente encontrado:</div>
           <ClientCpf>{result.cpf}</ClientCpf>
           <ClientName>{result.name}</ClientName>
           <PrimaryButton>Solicitar</PrimaryButton>
-        </ClientBox>
+        </Wrapper>
       )}
-    </Wrapper>
+    </ClientBox>
   );
 }
