@@ -1,5 +1,5 @@
-import Layout from "../components/Layout";
-import { useAppSelector, useAppDispatch } from "../hooks";
+import Layout from "../../components/Layout";
+import { useAppSelector, useAppDispatch } from "../../hooks";
 
 
 

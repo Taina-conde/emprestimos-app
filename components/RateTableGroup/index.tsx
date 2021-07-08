@@ -55,7 +55,7 @@ export default function RateTableGroup() {
                 Parcelas: {installment.installments}
               </Text>
               <Text>Valor da Parcela: {solicitation.installmentValue}</Text>
-              <Button type="submit">Avançar</Button>
+              <Button type="button">Avançar</Button>
             </FixedBar>
           )}
         </Wrapper>
