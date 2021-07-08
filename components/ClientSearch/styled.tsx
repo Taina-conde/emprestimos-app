@@ -37,7 +37,11 @@ export const Wrapper = styled.div`
 export const Button = styled(PrimaryButton)`
   margin-top: 20px;
   @media (min-width: 480px) {
+    height: 62px;
     margin-top: unset;
-    margin-left: 20px;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+
+  
   }
 `;

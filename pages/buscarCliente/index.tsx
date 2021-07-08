@@ -1,4 +1,5 @@
 import Layout from "../../components/Layout";
+import ClientSearch from "../../components/ClientSearch";
 import { useAppSelector, useAppDispatch } from "../../hooks";
 
 
@@ -8,7 +9,7 @@ export default function BuscarCliente() {
   return (
     <Layout title="Solicitar Empréstimo">
       <div>
-        Buscar cliente
+        <ClientSearch/>
         
       </div>
     </Layout>
