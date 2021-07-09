@@ -5,12 +5,7 @@ import Input from "../shared/Input";
 interface HeaderProps {
   readonly green?: boolean;
 }
-export const Title = styled.h1`
-  font-size: 21px;
-  color: ${(props) => props.theme.colors.primary.main};
-  text-align: center;
-  font-weight: normal;
-`;
+
 export const Text = styled.p`
   font-size: 21px;
   color: ${(props) => props.theme.colors.primary.main};
@@ -33,7 +28,9 @@ export const Row = styled.div`
 export const Col = styled.div`
   margin: 10px;
   width: 50%;
-  text-align: center;
+  display: flex;
+  flex-direction: column;
+  
 `;
 export const CardInput = styled(Input)`
   font-size: 18px;
@@ -53,12 +50,15 @@ export const Button = styled(PrimaryButton)`
 `;
 export const HeaderItem = styled.div<HeaderProps>`
   font-size: 18px;
+  width: 470px;
   text-align: left;
   font-weight: bold;
-  padding: 20px;
+  padding: 15px;
   font-style: italic;
-  margin: 20px 0;
-  flex-grow: 1;
+  margin: 10px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
   background-color: ${(props) =>
     props.green
       ? props.theme.colors.background.secondary
@@ -66,9 +66,10 @@ export const HeaderItem = styled.div<HeaderProps>`
   border-radius: ${(props) => props.theme.input.borderRadius};
   color: ${(props) => props.theme.colors.primary.main};
 `;
-export const ItemValue = styled.span`
-color: ${props => props.theme.colors.secondary.main};
-background-color: "#FFFFFF";
-border-radius: ${props => props.theme.input.borderRadius};
-padding: 10px;
-`
+export const ItemValue = styled.div`
+  color: ${(props) => props.theme.colors.secondary.main};
+  background-color: #ffffff;
+  border-radius: ${(props) => props.theme.input.borderRadius};
+  padding: 10px;
+  width: 30%;
+`;

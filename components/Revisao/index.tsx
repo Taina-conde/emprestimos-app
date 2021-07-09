@@ -48,7 +48,8 @@ export default function CardInfoForm() {
                   Tabela:<ItemValue>{rateTable.name}</ItemValue>
                 </HeaderItem>
                 <HeaderItem green>
-                  Valor desejado:<ItemValue>R$ {solicitation.desiredValue}</ItemValue>
+                  Valor desejado:
+                  <ItemValue>R$ {solicitation.desiredValue}</ItemValue>
                 </HeaderItem>
                 <HeaderItem>
                   Parcelas: <ItemValue>0</ItemValue>
@@ -56,10 +57,12 @@ export default function CardInfoForm() {
               </Col>
               <Col>
                 <HeaderItem green>
-                  Valor total do empréstimo: <ItemValue>R$ {solicitation.totalLoan}</ItemValue>{" "}
+                  Valor total do empréstimo: 
+                  <ItemValue>R$ {solicitation.totalLoan}</ItemValue>
                 </HeaderItem>
                 <HeaderItem>
-                  Valor da parcela: <ItemValue>R$ {solicitation.installmentValue}</ItemValue>{" "}
+                  Valor da parcela: 
+                  <ItemValue>R$ {solicitation.installmentValue}</ItemValue>
                 </HeaderItem>
               </Col>
             </Row>
