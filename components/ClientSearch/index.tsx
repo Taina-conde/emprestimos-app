@@ -8,9 +8,10 @@ import {
 } from "./styled";
 import Input from "../shared/Input";
 import { Formik, FormikHelpers, FormikErrors } from "formik";
-import { useAppDispatch, useAppSelector } from "../../hooks";
+import { useAppDispatch} from "../../hooks";
 import { getClientByCpf } from "../../pages/api/helpers";
 import { setClientId } from '../../redux/slices/solicitation';
+import { setSearchResult } from '../../redux/slices/searchResult';
 
 interface Values {
   cpf: string;
@@ -29,19 +30,7 @@ interface Client {
 
 export default function ClientSearch() {
   const dispatch = useAppDispatch();
-  const solicitation = useAppSelector(state => state.solicitation);
   let searchResult: Client | string;
-  let client: Client = {
-    id: 0,
-    name: "",
-    phone: "",
-    cpf: "",
-    bank: {
-      label: "",
-      accountTypeLabel: "",
-      accountNumber: "",
-    },
-  };
   return (
     <div>
       <Formik
@@ -65,6 +54,7 @@ export default function ClientSearch() {
           alert("submit clicked");
           // getClientByCpf(cpf)
           searchResult = getClientByCpf(cpf);
+          dispatch(setSearchResult(searchResult))
           if (typeof searchResult !== 'string') {
             const { id } = searchResult;
             //dispatch action to update clientId

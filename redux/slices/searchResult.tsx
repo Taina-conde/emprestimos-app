@@ -14,15 +14,20 @@ interface Result {
     };
   };
 
-const initialState: Result | string = getClientById(0);
+const initialState: string = "";
 
 
 const searchResultSlice = createSlice({
     name: 'searchResult',
     initialState,
     reducers: {
-      setSearchResult(state, action : PayloadAction<Result| string>) {
-        state = action.payload
+      setSearchResult(state: Result | string, action : PayloadAction<Result| string>) {
+        if (typeof action.payload === 'string') {
+            state = action.payload
+        } else {
+            state = {...action.payload}
+        }
+        
       },
      
     },
