@@ -1,13 +1,20 @@
 import { Box, Title, Text, HelperText, Button, Wrapper } from "./styled";
+import Link from "next/link";
 
-export default function ContractType() {
+export default function PaymentMethod() {
+  
   return (
     <Box>
       <Title>Escolha a modalidade:</Title>
-      <Button>Cartão de Crédito</Button>
+      <Link href="">
+        <Button type="button">
+          Cartão de Crédito
+        </Button>
+      </Link>
+
       <Text> Ou </Text>
       <Wrapper>
-        <Button disabled = {true}>Crédito Consignado</Button>
+        <Button disabled={true}>Crédito Consignado</Button>
         <HelperText>Em Breve</HelperText>
       </Wrapper>
     </Box>

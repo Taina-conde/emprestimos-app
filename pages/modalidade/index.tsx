@@ -1,10 +1,10 @@
 import Layout from "../../components/Layout";
-import ContractType from "../../components/ContractType";
+import PaymentMethod from "../../components/PaymentMethod";
 
 export default function Modalidade() {
   return (
     <Layout title="Solicitar Empréstimo">
-      <ContractType />
+      <PaymentMethod />
     </Layout>
   );
 }

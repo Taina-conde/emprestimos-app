@@ -83,7 +83,7 @@ const data = {
       desiredValue: 2222,
       totalLoan: 2677.51,
       installmentId: 4,
-      rateTableId: 2
+      rateTableId: 2,
     }
   ]
 }

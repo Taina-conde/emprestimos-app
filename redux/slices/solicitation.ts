@@ -59,7 +59,7 @@ const solicitationSlice = createSlice({
   },
   setCardNumber(state, action: PayloadAction<string>) {
     state.cardNumber = action.payload
-  }
+  },
 }
 });
 export const { setCardNumber, setDesiredValue, setChosenInstallment, setClientId } = solicitationSlice.actions;
