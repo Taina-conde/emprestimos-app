@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 interface ButtonProps {
-  readonly disabled: boolean;
+  readonly disabled?: boolean;
 }
 const PrimaryButton = styled.button<ButtonProps>`
   height: 53px;
