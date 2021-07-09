@@ -4,14 +4,13 @@ import logger from "redux-logger";
 import solicitationReducer from "./slices/solicitation";
 import rateTablesReducer from "./slices/rateTables";
 import searchResultReducer from "./slices/searchResult";
-import clientsReducer from './slices/clients';
+import clientsReducer from "./slices/clients";
+import creditCardReducer from "./slices/creditCard";
 import { getRateTables, getClients } from "../pages/api/helpers";
-
 
 let store;
 const rateTables = getRateTables();
 const clients = getClients();
-
 
 interface State {
   solicitation: {
@@ -52,7 +51,13 @@ interface State {
       accountNumber: string;
     };
   }[];
- 
+  creditCard: {
+    name: string;
+    clientId: number;
+    cardNumber: string;
+    expirationDate: string;
+    cvc: string;
+  };
 }
 
 const initialState = {
@@ -73,6 +78,13 @@ const initialState = {
   },
   rateTables: rateTables,
   clients: clients,
+  creditCard: {
+    name: "",
+    clientId: 0,
+    cardNumber: "",
+    expirationDate: "",
+    cvc: "",
+  },
 };
 
 function initStore(preloadedState = initialState) {
@@ -82,6 +94,7 @@ function initStore(preloadedState = initialState) {
       rateTables: rateTablesReducer,
       clients: clientsReducer,
       searchResult: searchResultReducer,
+      creditCard: creditCardReducer
     },
     middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(logger),
     preloadedState,
