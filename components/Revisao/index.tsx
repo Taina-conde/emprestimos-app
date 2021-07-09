@@ -1,9 +1,10 @@
 import { Form, Row, Col, Button, HeaderItem, Text, ItemValue } from "./styled";
-
+import checkMark from "../../assets/icons/ionicons-checkmark.svg";
 import { Formik, FormikHelpers, FormikErrors } from "formik";
 import { useAppDispatch, useAppSelector } from "../../hooks";
 import Link from "next/link";
 import { getRateTableById } from "../../pages/api/helpers";
+import Image from "next/image";
 
 interface Values {
   tabela: string;
@@ -80,7 +81,10 @@ export default function CardInfoForm() {
               </Col>
               <Col>
                 <Link href="/modalidade">
-                  <Button type="submit">Concluir</Button>
+                  <Button type="submit">
+                      <Image src = {checkMark} alt = "checkmarkIcon"/>
+                      {" "}Concluir
+                </Button>
                 </Link>
               </Col>
             </Row>
