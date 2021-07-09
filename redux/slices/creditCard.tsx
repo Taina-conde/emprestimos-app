@@ -24,7 +24,11 @@ const creditCardSlice = createSlice({
     initialState,
     reducers: {
       setCreditCard(state, action : PayloadAction<Card>) {
-        state = action.payload
+        state.name = action.payload.name;
+        state.clientId = action.payload.clientId;
+        state.cardNumber = action.payload.cardNumber;
+        state.expirationDate = action.payload.expirationDate;
+        state.cvc = action.payload.cvc;
       },
      
     },

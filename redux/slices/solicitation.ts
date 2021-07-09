@@ -11,6 +11,7 @@ interface Solicitation {
   installmentId: number;
   rateTableId: number;
   clientId: number;
+  cardNumber: string;
 }
 interface InstallmentInfo {
   installmentInterest: number;
@@ -33,6 +34,7 @@ const initialState = {
   installmentId: 0,
   rateTableId: 0,
   clientId: 0,
+  cardNumber: "",
 } as Solicitation;
 
 const solicitationSlice = createSlice({
@@ -54,8 +56,11 @@ const solicitationSlice = createSlice({
   },
   setClientId(state, action: PayloadAction<number>) {
     state.clientId = action.payload
+  },
+  setCardNumber(state, action: PayloadAction<string>) {
+    state.cardNumber = action.payload
   }
 }
 });
-export const { setDesiredValue, setChosenInstallment, setClientId } = solicitationSlice.actions;
+export const { setCardNumber, setDesiredValue, setChosenInstallment, setClientId } = solicitationSlice.actions;
 export default solicitationSlice.reducer;
