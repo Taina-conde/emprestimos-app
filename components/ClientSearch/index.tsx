@@ -2,7 +2,7 @@ import { Form, Button, Title, Wrapper, HelperText, Label } from "./styled";
 import Input from "../shared/Input";
 import { Formik, FormikHelpers, FormikErrors } from "formik";
 import { useAppDispatch } from "../../hooks";
-import { getClientByCpf, getClientById } from "../../pages/api/helpers";
+import { getClientByCpf } from "../../pages/api/helpers";
 import { setClientId } from "../../redux/slices/solicitation";
 import { setSearchResult } from "../../redux/slices/searchResult";
 
@@ -47,8 +47,7 @@ export default function ClientSearch() {
           { setSubmitting }: FormikHelpers<Values>
         ) => {
           const { cpf } = values;
-          alert("submit clicked");
-          // getClientByCpf(cpf)
+
           const response: Client | string = getClientByCpf(cpf);
 
           if (typeof response !== "string") {
@@ -57,10 +56,9 @@ export default function ClientSearch() {
               status: "cliente encontrado",
               client: { ...response },
             };
-            //dispatch action to update clientId
             dispatch(setClientId(id));
             dispatch(setSearchResult(searchResult));
-            console.log("searchResult cliente encontrado", searchResult);
+     
           } else {
             const searchResult = {
               status: response,
@@ -77,9 +75,7 @@ export default function ClientSearch() {
               },
             };
             dispatch(setSearchResult(searchResult));
-            console.log("searchResult cliente nao encontrado", searchResult);
           }
-          
           setSubmitting(false);
         }}
       >
