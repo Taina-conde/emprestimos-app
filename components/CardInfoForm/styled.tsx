@@ -45,21 +45,15 @@ export const CardInput = styled(Input)`
 export const Label = styled.label`
   display: flex;
   flex-direction: column;
-  margin: 0.5em 0;
+  padding: 10px 0;
   font-size: 0.8em;
   position: relative;
 `;
 export const HelperText = styled.p`
+margin: 3px 0;
   color: ${(props) => props.theme.colors.text.error};
 `;
-export const Wrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  @media (min-width: 480px) {
-    flex-direction: row;
-  }
-`;
+
 export const Button = styled(PrimaryButton)`
   margin-top: 20px;
   @media (min-width: 480px) {
