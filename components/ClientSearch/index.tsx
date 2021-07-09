@@ -1,17 +1,10 @@
-import {
-  Form,
-  Button,
-  Title,
-  Wrapper,
-  HelperText,
-  Label,
-} from "./styled";
+import { Form, Button, Title, Wrapper, HelperText, Label } from "./styled";
 import Input from "../shared/Input";
 import { Formik, FormikHelpers, FormikErrors } from "formik";
-import { useAppDispatch} from "../../hooks";
-import { getClientByCpf } from "../../pages/api/helpers";
-import { setClientId } from '../../redux/slices/solicitation';
-import { setSearchResult } from '../../redux/slices/searchResult';
+import { useAppDispatch } from "../../hooks";
+import { getClientByCpf, getClientById } from "../../pages/api/helpers";
+import { setClientId } from "../../redux/slices/solicitation";
+import { setSearchResult } from "../../redux/slices/searchResult";
 
 interface Values {
   cpf: string;
@@ -27,10 +20,13 @@ interface Client {
     accountNumber: string;
   };
 }
+interface Result {
+  status: string;
+  client: Client;
+}
 
 export default function ClientSearch() {
   const dispatch = useAppDispatch();
-  let searchResult: Client | string;
   return (
     <div>
       <Formik
@@ -53,14 +49,37 @@ export default function ClientSearch() {
           const { cpf } = values;
           alert("submit clicked");
           // getClientByCpf(cpf)
-          searchResult = getClientByCpf(cpf);
-          dispatch(setSearchResult(searchResult))
-          if (typeof searchResult !== 'string') {
-            const { id } = searchResult;
+          const response: Client | string = getClientByCpf(cpf);
+
+          if (typeof response !== "string") {
+            const { id } = response;
+            const searchResult: Result = {
+              status: "cliente encontrado",
+              client: { ...response },
+            };
             //dispatch action to update clientId
-            dispatch(setClientId(id))
+            dispatch(setClientId(id));
+            dispatch(setSearchResult(searchResult));
+            console.log("searchResult cliente encontrado", searchResult);
+          } else {
+            const searchResult = {
+              status: response,
+              client: {
+                id: 0,
+                name: "",
+                phone: "",
+                cpf: "",
+                bank: {
+                  label: "",
+                  accountTypeLabel: "",
+                  accountNumber: "",
+                },
+              },
+            };
+            dispatch(setSearchResult(searchResult));
+            console.log("searchResult cliente nao encontrado", searchResult);
           }
-          console.log('searchResult', searchResult)
+          
           setSubmitting(false);
         }}
       >
@@ -90,11 +109,9 @@ export default function ClientSearch() {
               <Button type="submit">Buscar</Button>
             </Wrapper>
             {touched.cpf && errors.cpf && <HelperText>{errors.cpf}</HelperText>}
-
           </Form>
         )}
       </Formik>
-      
     </div>
   );
 }

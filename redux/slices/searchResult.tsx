@@ -1,8 +1,9 @@
-import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { getClientById } from '../../pages/api/helpers';
-
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { getClientById } from "../../pages/api/helpers";
 
 interface Result {
+  status: string;
+  client: {
     id: number;
     name: string;
     phone: string;
@@ -13,24 +14,31 @@ interface Result {
       accountNumber: string;
     };
   };
+}
 
-const initialState: string = "";
-
+const initialState: Result = {
+  status: "",
+  client: {
+    id: 0,
+    name: "",
+    phone: "",
+    cpf: "",
+    bank: {
+      label: "",
+      accountTypeLabel: "",
+      accountNumber: "",
+    },
+  },
+};
 
 const searchResultSlice = createSlice({
-    name: 'searchResult',
-    initialState,
-    reducers: {
-      setSearchResult(state: Result | string, action : PayloadAction<Result| string>) {
-        if (typeof action.payload === 'string') {
-            state = action.payload
-        } else {
-            state = {...action.payload}
-        }
-        
-      },
-     
+  name: "searchResult",
+  initialState,
+  reducers: {
+    setSearchResult(state, action: PayloadAction<Result>) {
+      state = { ...action.payload };
     },
-  })
-  export const { setSearchResult } = searchResultSlice.actions
-  export default searchResultSlice.reducer
+  },
+});
+export const { setSearchResult } = searchResultSlice.actions;
+export default searchResultSlice.reducer;

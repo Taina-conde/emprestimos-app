@@ -12,6 +12,7 @@ let store;
 const rateTables = getRateTables();
 const clients = getClients();
 
+
 interface State {
   solicitation: {
     id: number;
@@ -51,6 +52,7 @@ interface State {
       accountNumber: string;
     };
   }[];
+ 
 }
 
 const initialState = {
