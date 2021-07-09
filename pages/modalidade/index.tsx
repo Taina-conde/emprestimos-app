@@ -1,11 +1,10 @@
 import Layout from "../../components/Layout";
-import CardInfoForm from "../../components/CardInfoForm";
+import ContractType from "../../components/ContractType";
 
-export default function DadosCartao() {
-
+export default function Modalidade() {
   return (
     <Layout title="Solicitar Empréstimo">
-      <CardInfoForm />
+      <ContractType />
     </Layout>
   );
 }
