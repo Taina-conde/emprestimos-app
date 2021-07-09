@@ -47,6 +47,17 @@ export default function CardInfoForm() {
         }}
         validate={(values: Values) => {
           let errors: FormikErrors<Values> = {};
+          if (!values.name ) {
+            errors.name = "Campo obrigatório"
+          } 
+        if (!values.cardNumber) {
+              errors.cardNumber = "Campo obrigatório"
+          }
+          if(!values.cvc) {
+              errors.cvc = "Campo obrigatório"
+          } else if (values.cvc.length !== 3) {
+              errors.cvc = "Deve conter 3 números"
+          }
 
           return errors;
         }}
