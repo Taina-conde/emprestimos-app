@@ -3,8 +3,9 @@ import checkMark from "../../assets/icons/ionicons-checkmark.svg";
 import { Formik, FormikHelpers, FormikErrors } from "formik";
 import { useAppDispatch, useAppSelector } from "../../hooks";
 import Link from "next/link";
-import { getRateTableById } from "../../pages/api/helpers";
+import { getRateTableById, getInstallmentById } from "../../pages/api/helpers";
 import Image from "next/image";
+import RateTable from "../RateTableGroup/RateTable";
 
 interface Values {
   tabela: string;
@@ -13,7 +14,12 @@ interface Values {
 
 export default function CardInfoForm() {
   const solicitation = useAppSelector((state) => state.solicitation);
-  const rateTable = getRateTableById(solicitation.rateTableId)
+  const rateTable = getRateTableById(solicitation.rateTableId);
+  const installment = getInstallmentById(
+    solicitation.rateTableId,
+    solicitation.installmentId
+  );
+  console.log(rateTable);
   const dispatch = useAppDispatch();
   return (
     <div>
@@ -53,16 +59,16 @@ export default function CardInfoForm() {
                   <ItemValue>R$ {solicitation.desiredValue}</ItemValue>
                 </HeaderItem>
                 <HeaderItem>
-                  Parcelas: <ItemValue>0</ItemValue>
+                  Parcelas: <ItemValue>{installment.installments}</ItemValue>
                 </HeaderItem>
               </Col>
               <Col>
                 <HeaderItem green>
-                  Valor total do empréstimo: 
+                  Valor total do empréstimo:
                   <ItemValue>R$ {solicitation.totalLoan}</ItemValue>
                 </HeaderItem>
                 <HeaderItem>
-                  Valor da parcela: 
+                  Valor da parcela:
                   <ItemValue>R$ {solicitation.installmentValue}</ItemValue>
                 </HeaderItem>
               </Col>
@@ -72,22 +78,18 @@ export default function CardInfoForm() {
             </Row>
             <Row>
               <Col>
-              <Button>
-                  Automático
-              </Button>
-              <Button>
-                  Manual
-              </Button>
+                <Button>Automático</Button>
+                <Button>Manual</Button>
               </Col>
               <Col>
-                <Link href="/modalidade">
+                <Link href="/confirmacao">
                   <Button type="submit">
-                      <Image src = {checkMark} alt = "checkmarkIcon"/>
-                      {" "}Concluir
-                </Button>
+                    <Image src={checkMark} alt="checkmarkIcon" /> Concluir
+                  </Button>
                 </Link>
               </Col>
             </Row>
+            {rateTable !== undefined && <Row> RATE TABLE AQUI</Row>}
           </Form>
         )}
       </Formik>
