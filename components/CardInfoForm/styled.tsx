@@ -68,3 +68,16 @@ export const Button = styled(PrimaryButton)`
     width: 391px;
   }
 `;
+export const CardPicturesInput = styled.div`
+  font-size: 18px;
+  text-align: left;
+  font-weight: bold;
+  padding: 15px;
+  font-style: italic;
+  margin: 20px 0;
+  flex-grow: 1;
+  background-color: ${(props) => props.theme.input.backgroundColor.primary};
+  border-radius: ${props => props.theme.input.borderRadius};
+  color: ${(props) => props.theme.colors.text.main};
+
+`

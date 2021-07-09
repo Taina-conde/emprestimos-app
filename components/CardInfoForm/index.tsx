@@ -9,6 +9,7 @@ import {
   Label,
   CardInput,
   Text,
+  CardPicturesInput,
 } from "./styled";
 
 import { Formik, FormikHelpers, FormikErrors } from "formik";
@@ -135,11 +136,7 @@ export default function CardInfoForm() {
                       onChange={handleChange}
                       onBlur={handleBlur}
                       value={values.cvc}
-                      border={
-                        touched.cvc &&
-                        errors.cvc &&
-                        "1px solid red"
-                      }
+                      border={touched.cvc && errors.cvc && "1px solid red"}
                       type="text"
                       name="cvc"
                       placeholder="CVC"
@@ -152,29 +149,20 @@ export default function CardInfoForm() {
               </Col>
               <Col>
                 <Title>Faça o upload dos anexos do cartão:</Title>
-                <Wrapper>
-                  <Label>
-                    <CardInput
-                      append
-                      onChange={handleChange}
-                      onBlur={handleBlur}
-                      value={values.cardNumber}
-                      border={
-                        touched.cardNumber &&
-                        errors.cardNumber &&
-                        "1px solid red"
-                      }
-                      type="text"
-                      name="cardNumber"
-                      placeholder="cardNumber do cliente"
-                    />
-                  </Label>
-                  {touched.cardNumber && errors.cardNumber && (
-                    <HelperText>{errors.cardNumber}</HelperText>
-                  )}
-                </Wrapper>
+                
+                  <CardPicturesInput>
+                    Cartão de Crédito (frente)
+                  </CardPicturesInput>
+                  <CardPicturesInput>
+                    Cartão de Crédito (verso)
+                  </CardPicturesInput>
+                  <CardPicturesInput>
+                    Selfie com Cartão de Crédito
+                  </CardPicturesInput>
+                
                 <Text>
-                    Atenção: As fotos devem estar legíveis, com todas as informações visíveis do cartão.
+                  Atenção: As fotos devem estar legíveis, com todas as
+                  informações visíveis do cartão.
                 </Text>
               </Col>
             </Row>
