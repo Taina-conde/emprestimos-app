@@ -6,6 +6,7 @@ import {
   ClientCpf,
 } from "./styled";
 import PrimaryButton from "../shared/PrimaryButton";
+import Link from "next/link";
 
 interface Client {
   id: number;
@@ -36,7 +37,11 @@ export default function ClientSearchResult(props: OtherProps) {
           <div>Cliente encontrado:</div>
           <ClientCpf>{result.client.cpf}</ClientCpf>
           <ClientName>{result.client.name}</ClientName>
-          <PrimaryButton>Solicitar</PrimaryButton>
+          <Link href = "/dadosCartao">
+          <PrimaryButton type = "button">Solicitar</PrimaryButton>
+          </Link>
+
+          
         </Wrapper>
       ) : (
         <ClientNotFound>{result.status}</ClientNotFound>
