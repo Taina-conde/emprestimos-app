@@ -6,7 +6,7 @@ export default function PaymentMethod() {
   return (
     <Box>
       <Title>Escolha a modalidade:</Title>
-      <Link href="">
+      <Link href="/revisao">
         <Button type="button">
           Cartão de Crédito
         </Button>

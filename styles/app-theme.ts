@@ -15,7 +15,10 @@ const appTheme: DefaultTheme = {
       secondary: "#FFFFFF",
       error: '#DF0101',
     },
-    background: "#F8F8F8",
+    background: {
+      primary: "#F8F8F8",
+      secondary: "#E8FFE3"
+    }
   },
   input: {
     borderRadius: "5px",
