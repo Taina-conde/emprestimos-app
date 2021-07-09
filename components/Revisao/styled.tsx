@@ -9,7 +9,8 @@ interface HeaderProps {
 export const Text = styled.p`
   font-size: 21px;
   color: ${(props) => props.theme.colors.primary.main};
-  text-align: left;
+  align-self: flex-start;
+
 `;
 export const Form = styled.form`
   display: flex;
@@ -17,6 +18,7 @@ export const Form = styled.form`
   flex-direction: column;
 `;
 export const Row = styled.div`
+width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -50,7 +52,6 @@ export const Button = styled(PrimaryButton)`
 `;
 export const HeaderItem = styled.div<HeaderProps>`
   font-size: 18px;
-  width: 470px;
   text-align: left;
   font-weight: bold;
   padding: 15px;
