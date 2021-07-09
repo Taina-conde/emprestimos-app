@@ -1,13 +1,13 @@
 import Layout from "../../components/Layout";
 import { useAppSelector } from "../../hooks";
+import CardInfoForm from "../../components/CardInfoForm";
 
 export default function DadosCartao() {
-  const result = useAppSelector((state) => state.searchResult)
+  const result = useAppSelector((state) => state.searchResult);
 
   return (
     <Layout title="Solicitar Empréstimo">
-   dados do cartao
-      
+      <CardInfoForm />
     </Layout>
   );
 }
