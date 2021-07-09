@@ -18,8 +18,12 @@ interface Client {
     accountNumber: string;
   };
 }
+interface Result {
+    status: string;
+    client: Client;
+  }
 interface OtherProps {
-  result: Client | string;
+  result: Result;
 }
 
 export default function ClientSearchResult(props: OtherProps) {
@@ -27,15 +31,15 @@ export default function ClientSearchResult(props: OtherProps) {
   console.log("result dentro do clientsearchresult", result);
   return (
     <ClientBox>
-      {typeof result === "string" ? (
-        <ClientNotFound>{result}</ClientNotFound>
-      ) : (
+      {result.status === "cliente encontrado" ? (
         <Wrapper>
           <div>Cliente encontrado:</div>
-          <ClientCpf>{result.cpf}</ClientCpf>
-          <ClientName>{result.name}</ClientName>
+          <ClientCpf>{result.client.cpf}</ClientCpf>
+          <ClientName>{result.client.name}</ClientName>
           <PrimaryButton>Solicitar</PrimaryButton>
         </Wrapper>
+      ) : (
+        <ClientNotFound>{result.status}</ClientNotFound>
       )}
     </ClientBox>
   );

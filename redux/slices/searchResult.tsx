@@ -1,5 +1,4 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { getClientById } from "../../pages/api/helpers";
 
 interface Result {
   status: string;
@@ -36,7 +35,8 @@ const searchResultSlice = createSlice({
   initialState,
   reducers: {
     setSearchResult(state, action: PayloadAction<Result>) {
-      state = { ...action.payload };
+      state.status = action.payload.status;
+      state.client = action.payload.client;
     },
   },
 });
