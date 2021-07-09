@@ -23,7 +23,7 @@ const appTheme: DefaultTheme = {
       primary: "#F8F8F8",
       secondary: 'rgba(239, 223, 75, .23)',
     },
-    opacity: 0.23,
+    opacity: 0.4,
   },
 };
 

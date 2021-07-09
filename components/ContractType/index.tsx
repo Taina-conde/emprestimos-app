@@ -1,21 +1,15 @@
-import { Box, Title, Text, HelperText } from "./styled";
-import PrimaryButton from "../shared/PrimaryButton";
+import { Box, Title, Text, HelperText, Button, Wrapper } from "./styled";
+
 export default function ContractType() {
   return (
     <Box>
       <Title>Escolha a modalidade:</Title>
-      <PrimaryButton type = 'button'>
-          Cartão de Crédito
-      </PrimaryButton>
+      <Button>Cartão de Crédito</Button>
       <Text> Ou </Text>
-      <PrimaryButton type = 'button'>
-          Crédito Consignado
-      </PrimaryButton>
-      <HelperText>
-          Em Breve
-      </HelperText>
-      
-
+      <Wrapper>
+        <Button disabled = {true}>Crédito Consignado</Button>
+        <HelperText>Em Breve</HelperText>
+      </Wrapper>
     </Box>
   );
 }

@@ -15,7 +15,7 @@ import { Formik, FormikHelpers, FormikErrors } from "formik";
 import { useAppDispatch, useAppSelector } from "../../hooks";
 import { setCreditCard } from "../../redux/slices/creditCard";
 import { setCardNumber } from "../../redux/slices/solicitation";
-
+import Link from "next/link";
 
 interface Values {
   name: string;
@@ -69,14 +69,14 @@ export default function CardInfoForm() {
         ) => {
           const { name, cardNumber, expirationDate, cvc } = values;
           const creditCard = {
-            clientId : client.id,
+            clientId: client.id,
             name,
             cardNumber,
             expirationDate,
-            cvc
-          }
-          dispatch(setCreditCard(creditCard))
-          dispatch(setCardNumber(cardNumber))
+            cvc,
+          };
+          dispatch(setCreditCard(creditCard));
+          dispatch(setCardNumber(cardNumber));
           setSubmitting(false);
         }}
       >
@@ -181,8 +181,9 @@ export default function CardInfoForm() {
               </Col>
             </Row>
             <Row>
-
-              <Button type="submit">Continuar</Button>
+              <Link href="/modalidade">
+                <Button type="submit">Continuar</Button>
+              </Link>
             </Row>
           </Form>
         )}
