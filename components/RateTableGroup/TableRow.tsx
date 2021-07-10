@@ -57,7 +57,6 @@ export default function TableRow(props: Installment) {
       installmentInterestValue,
     };
     dispatch(setChosenInstallment(payload));
-    alert("clicked");
   };
   return (
     <Tr key={id} onClick={clickHandler}>
