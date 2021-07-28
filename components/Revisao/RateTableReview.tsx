@@ -45,12 +45,12 @@ export default function RateTableReview(props: RateTable) {
       <TableBody>
         {installments.map((installment: Installment) => {
           return (
-            <Tr key={installment.id} rateTableId={id} {...installment}>
+            <Tr key={installment.id} >
               <Td>{installments}</Td>
-              <Td>{installmentInterest}%</Td>
-              <Td>R$ {installmentValue}</Td>
-              <Td>R$ {totalLoan}</Td>
-              <Td>R$ {comissionValue}</Td>
+              <Td>{installment.installmentInterest}%</Td>
+              <Td>R$ {installment.installmentValue}</Td>
+              <Td>R$ {installment.fullValue}</Td>
+              <Td>R$ {installment.comission}</Td>
             </Tr>
           );
         })}
