@@ -1,27 +1,35 @@
-import { Th, Tr, TableTitle, Table, TableHead, TableBody } from "../shared/Table";
+import {
+  Th,
+  Tr,
+  TableTitle,
+  Table,
+  TableHead,
+  Td,
+  TableBody,
+} from "../shared/Table";
 
 interface RateTable {
-    id: number;
-    name: string;
-    installments: {
-      id: number;
-      installments: number;
-      installmentInterest: number;
-      installmentValue: number;
-      fullValue: number;
-      comission: number;
-    }[];
-  }
-  interface Installment {
+  id: number;
+  name: string;
+  installments: {
     id: number;
     installments: number;
     installmentInterest: number;
     installmentValue: number;
     fullValue: number;
     comission: number;
-  }
+  }[];
+}
+interface Installment {
+  id: number;
+  installments: number;
+  installmentInterest: number;
+  installmentValue: number;
+  fullValue: number;
+  comission: number;
+}
 export default function RateTableReview(props: RateTable) {
-    const { name, installments } = props;
+  const { name, installments } = props;
   return (
     <Table>
       <TableTitle>{name}</TableTitle>
@@ -37,12 +45,16 @@ export default function RateTableReview(props: RateTable) {
       <TableBody>
         {installments.map((installment: Installment) => {
           return (
-            <Tr key={installment.id} rateTableId={id} {...installment} >
-
+            <Tr key={installment.id} rateTableId={id} {...installment}>
+              <Td>{installments}</Td>
+              <Td>{installmentInterest}%</Td>
+              <Td>R$ {installmentValue}</Td>
+              <Td>R$ {totalLoan}</Td>
+              <Td>R$ {comissionValue}</Td>
             </Tr>
           );
         })}
       </TableBody>
     </Table>
-  )
+  );
 }

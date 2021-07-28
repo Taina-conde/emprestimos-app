@@ -5,7 +5,7 @@ import { useAppDispatch, useAppSelector } from "../../hooks";
 import Link from "next/link";
 import { getRateTableById, getInstallmentById } from "../../pages/api/helpers";
 import Image from "next/image";
-import RateTable from "../RateTableGroup/RateTable";
+import RateTableReview from "./RateTableReview";
 
 interface Values {
   tabela: string;
@@ -90,7 +90,7 @@ export default function CardInfoForm() {
               </Col>
             </Row>
             {rateTable  && 
-              "rate table"
+              <RateTableReview {...rateTable}/>
             }
           </Form>
         )}
