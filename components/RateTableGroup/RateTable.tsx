@@ -1,4 +1,4 @@
-import { Th, Tr, TableTitle, Table, TableHead, TableBody } from "./styled";
+import { Th, Tr, TableTitle, Table, TableHead, TableBody } from "../shared/Table";
 import TableRow  from './TableRow';
 
 

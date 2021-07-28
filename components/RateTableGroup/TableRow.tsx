@@ -1,4 +1,4 @@
-import { Tr, Td } from "./styled";
+import { Tr, Td } from "../shared/Table";
 import { useAppDispatch } from "../../hooks";
 import { setChosenInstallment } from "../../redux/slices/solicitation";
 import { useAppSelector } from "../../hooks";
