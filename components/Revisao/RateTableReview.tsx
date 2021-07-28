@@ -1,5 +1,26 @@
 import { Th, Tr, TableTitle, Table, TableHead, TableBody } from "../shared/Table";
-export default function RateTableReview(props) {
+
+interface RateTable {
+    id: number;
+    name: string;
+    installments: {
+      id: number;
+      installments: number;
+      installmentInterest: number;
+      installmentValue: number;
+      fullValue: number;
+      comission: number;
+    }[];
+  }
+  interface Installment {
+    id: number;
+    installments: number;
+    installmentInterest: number;
+    installmentValue: number;
+    fullValue: number;
+    comission: number;
+  }
+export default function RateTableReview(props: RateTable) {
     const { name, installments } = props;
   return (
     <Table>
