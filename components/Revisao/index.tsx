@@ -25,8 +25,8 @@ export default function CardInfoForm() {
     <div>
       <Formik
         initialValues={{
-          tabela: "",
-          parcelas: 0,
+          tabela: rateTable.name,
+          parcelas: installment.installments,
         }}
         validate={(values: Values) => {
           let errors: FormikErrors<Values> = {};

@@ -18,7 +18,10 @@ declare module 'styled-components' {
           secondary: string;
           error: string;
       }
-      background: string;
+      background: {
+        primary: string;
+        secondary: string;
+      }
     
     }
     input: {

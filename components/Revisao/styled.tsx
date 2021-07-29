@@ -62,5 +62,6 @@ export const ItemValue = styled.div`
   border-radius: ${(props) => props.theme.input.borderRadius};
   padding: 10px;
   width: 30%;
+  text-align: right;
 `;
 
