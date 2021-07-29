@@ -90,7 +90,7 @@ export default function CardInfoForm() {
               </Col>
             </Row>
             {rateTable  && 
-              <RateTableReview {...rateTable}/>
+              <RateTableReview id = {rateTable.id} name = {rateTable.name} installments= {rateTable.installments}/>
             }
           </Form>
         )}

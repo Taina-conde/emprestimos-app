@@ -29,7 +29,7 @@ interface Installment {
   comission: number;
 }
 export default function RateTableReview(props: RateTable) {
-  const { name, installments } = props;
+  const { name, installments, id } = props;
   return (
     <Table>
       <TableTitle>{name}</TableTitle>
@@ -46,7 +46,7 @@ export default function RateTableReview(props: RateTable) {
         {installments.map((installment: Installment) => {
           return (
             <Tr key={installment.id} >
-              <Td>{installments}</Td>
+              <Td>{installment.installments}</Td>
               <Td>{installment.installmentInterest}%</Td>
               <Td>R$ {installment.installmentValue}</Td>
               <Td>R$ {installment.fullValue}</Td>
