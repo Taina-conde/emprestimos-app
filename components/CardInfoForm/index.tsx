@@ -87,6 +87,8 @@ export default function CardInfoForm() {
           touched,
           errors,
           values,
+          isValid,
+          dirty
         }) => (
           <Form onSubmit={handleSubmit}>
             <Row>
@@ -182,7 +184,7 @@ export default function CardInfoForm() {
             </Row>
             <Row>
               <Link href="/modalidade">
-                <Button type="submit">Continuar</Button>
+                <Button type="submit" disabled = {!isValid || !dirty}>Continuar</Button>
               </Link>
             </Row>
           </Form>
