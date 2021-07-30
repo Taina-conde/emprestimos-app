@@ -18,14 +18,14 @@ export function getClients() {
     return _.get(data, 'clients')
 }
 
-export function getRateTableById(id : number) {
+export function getRateTableById(id : number = 1) {
     const rateTables = getRateTables();
     const rateTable = _.filter(rateTables, {id})
     return rateTable[0]
 
 }
 
-export function getInstallmentById(rateTableId: number, id: number) {
+export function getInstallmentById(rateTableId: number = 1, id: number = 1) {
     const rateTable = getRateTableById(rateTableId);
     const installments = rateTable.installments;
     const installment = _.filter(installments, {id})
@@ -48,7 +48,6 @@ export function getClientById(id: number) : Client | string {
     }
     return client[0]
 }
-
 
 
 

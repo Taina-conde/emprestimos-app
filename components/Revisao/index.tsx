@@ -14,19 +14,26 @@ interface Values {
 
 export default function CardInfoForm() {
   const solicitation = useAppSelector((state) => state.solicitation);
+  if (solicitation.clientId === 0) {
+    return <div>
+      not found
+    </div>
+  }
   const rateTable = getRateTableById(solicitation.rateTableId);
   const installment = getInstallmentById(
     solicitation.rateTableId,
     solicitation.installmentId
   );
   console.log(rateTable);
+
   const dispatch = useAppDispatch();
+  
   return (
     <div>
       <Formik
         initialValues={{
-          tabela: rateTable.name,
-          parcelas: installment.installments,
+          tabela: "",
+          parcelas: 0,
         }}
         validate={(values: Values) => {
           let errors: FormikErrors<Values> = {};
