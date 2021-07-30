@@ -65,3 +65,7 @@ export const ItemValue = styled.div`
   text-align: right;
 `;
 
+export const Slider = styled.div`
+
+`
+

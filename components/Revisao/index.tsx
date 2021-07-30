@@ -1,4 +1,4 @@
-import { Form, Row, Col, Button, HeaderItem, Text, ItemValue } from "./styled";
+import { Form, Row, Col, Button, HeaderItem, Text, ItemValue, Slider } from "./styled";
 import checkMark from "../../assets/icons/ionicons-checkmark.svg";
 import { Formik, FormikHelpers, FormikErrors } from "formik";
 import { useAppDispatch, useAppSelector } from "../../hooks";
@@ -34,6 +34,8 @@ export default function CardInfoForm() {
         initialValues={{
           tabela: "",
           parcelas: 0,
+          contractType: ""
+
         }}
         validate={(values: Values) => {
           let errors: FormikErrors<Values> = {};
@@ -85,8 +87,14 @@ export default function CardInfoForm() {
             </Row>
             <Row>
               <Col>
-                <Button>Automático</Button>
-                <Button>Manual</Button>
+              <Slider>
+                <input id="automatico" type="radio" name="contractType"/>
+                <label htmlFor= "automatico">Automático</label>
+                <input id="manual" type="radio" name="contractType"/>
+                <label htmlFor= "manual">Manual</label>
+              </Slider>
+
+               
               </Col>
               <Col>
                 <Link href="/confirmacao">
