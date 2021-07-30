@@ -15,6 +15,7 @@ interface Values {
 
 export default function CardInfoForm() {
   const solicitation = useAppSelector((state) => state.solicitation);
+  const dispatch = useAppDispatch();
   if (solicitation.clientId === 0) {
     return <NotFound/>
   }
@@ -25,7 +26,7 @@ export default function CardInfoForm() {
   );
   console.log(rateTable);
 
-  const dispatch = useAppDispatch();
+  
   
   return (
     <div>
