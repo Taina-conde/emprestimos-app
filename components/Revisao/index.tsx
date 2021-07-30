@@ -11,6 +11,7 @@ import NotFound from "../shared/NotFound";
 interface Values {
   tabela: string;
   parcelas: number;
+  contractType: string;
 }
 
 export default function CardInfoForm() {
@@ -34,7 +35,7 @@ export default function CardInfoForm() {
         initialValues={{
           tabela: "",
           parcelas: 0,
-          contractType: ""
+          contractType: "manual",
 
         }}
         validate={(values: Values) => {
@@ -88,9 +89,9 @@ export default function CardInfoForm() {
             <Row>
               <Col>
               <Slider>
-                <input id="automatico" type="radio" name="contractType"/>
+                <input id="automatico" type="radio" name="contractType" value = "automatico" />
                 <label htmlFor= "automatico">Automático</label>
-                <input id="manual" type="radio" name="contractType"/>
+                <input id="manual" type="radio" name="contractType" value = "manual" />
                 <label htmlFor= "manual">Manual</label>
               </Slider>
               </Col>

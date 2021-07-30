@@ -77,16 +77,20 @@ export const Slider = styled.div`
     display: none;
   }
   label {
-  color: ${props => props.theme.colors.text.secondary};
-  float: left;
-  text-align: center;
-  cursor: pointer;
-  transition: color .5s;
-  background-color: ${props => props.theme.colors.primary.main};
-  height: 98px;
+    height: 98px;
   width: 50%;
   border-radius:${props => props.theme.input.borderRadius};
   line-height: 98px;
+  cursor: pointer;
+  transition: color .5s;
+  float: left;
+  text-align: center;
+  color: ${props => props.theme.colors.primary.main};
+  }
+  input:checked + label {
+  color: ${props => props.theme.colors.text.secondary};
+  background-color: ${props => props.theme.colors.primary.main};
+  transition: background-color .5s;
 }
 
 `
