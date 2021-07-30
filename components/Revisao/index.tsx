@@ -93,8 +93,6 @@ export default function CardInfoForm() {
                 <input id="manual" type="radio" name="contractType"/>
                 <label htmlFor= "manual">Manual</label>
               </Slider>
-
-               
               </Col>
               <Col>
                 <Link href="/confirmacao">

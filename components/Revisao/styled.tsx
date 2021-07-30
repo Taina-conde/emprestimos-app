@@ -66,6 +66,28 @@ export const ItemValue = styled.div`
 `;
 
 export const Slider = styled.div`
+  margin-top: 20px;
+  @media (min-width: 480px) {
+    font-size: 39px;
+    height: 98px;
+    width: 100%;
+  }
+  position: relative;
+  input[type="radio"]{
+    display: none;
+  }
+  label {
+  color: ${props => props.theme.colors.text.secondary};
+  float: left;
+  text-align: center;
+  cursor: pointer;
+  transition: color .5s;
+  background-color: ${props => props.theme.colors.primary.main};
+  height: 98px;
+  width: 50%;
+  border-radius:${props => props.theme.input.borderRadius};
+  line-height: 98px;
+}
 
 `
 
