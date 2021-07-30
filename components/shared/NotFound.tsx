@@ -1,6 +1,5 @@
-import { NOTFOUND } from "dns";
 import styled from "styled-components";
-import Link from 'next';
+import Link from 'next/link';
 
 export default function NotFound() {
     return (<Wrapper>
@@ -11,8 +10,8 @@ export default function NotFound() {
             Não Encontrado
         </span>
         <span>
-            <Link>
-            
+            <Link href = "/">
+                <a>voltar para a página principal</a>
             </Link>
         </span>
         
