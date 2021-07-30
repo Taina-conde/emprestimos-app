@@ -6,7 +6,7 @@ import rateTablesReducer from "./slices/rateTables";
 import searchResultReducer from "./slices/searchResult";
 import clientsReducer from "./slices/clients";
 import creditCardReducer from "./slices/creditCard";
-import { getRateTables, getClients } from "../pages/api/helpers";
+import { getRateTables, getClients } from "../utils/api/helpers";
 
 let store;
 const rateTables = getRateTables();

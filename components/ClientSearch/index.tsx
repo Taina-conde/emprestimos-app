@@ -2,7 +2,7 @@ import { Form, Button, Title, Wrapper, HelperText, Label } from "./styled";
 import Input from "../shared/Input";
 import { Formik, FormikHelpers, FormikErrors } from "formik";
 import { useAppDispatch } from "../../hooks";
-import { getClientByCpf } from "../../pages/api/helpers";
+import { getClientByCpf } from "../../utils/api/helpers";
 import { setClientId } from "../../redux/slices/solicitation";
 import { setSearchResult } from "../../redux/slices/searchResult";
 

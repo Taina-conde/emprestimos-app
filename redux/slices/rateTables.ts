@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { getRateTables } from '../../pages/api/helpers';
+import { getRateTables } from '../../utils/api/helpers';
 
 
 interface RateTables {

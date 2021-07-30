@@ -17,7 +17,7 @@ const appTheme: DefaultTheme = {
     },
     background: {
       primary: "#F8F8F8",
-      secondary: "#E8FFE3"
+      secondary: "#E8FFE3",
     }
   },
   input: {

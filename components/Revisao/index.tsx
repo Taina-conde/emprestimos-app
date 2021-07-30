@@ -3,7 +3,7 @@ import checkMark from "../../assets/icons/ionicons-checkmark.svg";
 import { Formik, FormikHelpers, FormikErrors } from "formik";
 import { useAppDispatch, useAppSelector } from "../../hooks";
 import Link from "next/link";
-import { getRateTableById, getInstallmentById } from "../../pages/api/helpers";
+import { getRateTableById, getInstallmentById } from "../../utils/api/helpers";
 import Image from "next/image";
 import RateTableReview from "./RateTableReview";
 

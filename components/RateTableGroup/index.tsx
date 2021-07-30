@@ -1,7 +1,7 @@
 import RateTable from "./RateTable";
 import { Wrapper, Button, FixedBar, Text } from "./styled";
 import { useAppSelector } from "../../hooks";
-import { getRateTableById, getInstallmentById } from "../../pages/api/helpers";
+import { getRateTableById, getInstallmentById } from "../../utils/api/helpers";
 import Link from "next/link";
 
 interface Installment {

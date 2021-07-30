@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { getClients } from '../../pages/api/helpers';
+import { getClients } from '../../utils/api/helpers';
 
 
 interface Clients {
