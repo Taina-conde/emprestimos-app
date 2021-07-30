@@ -6,6 +6,7 @@ import Link from "next/link";
 import { getRateTableById, getInstallmentById } from "../../utils/api/helpers";
 import Image from "next/image";
 import RateTableReview from "./RateTableReview";
+import NotFound from "../shared/NotFound";
 
 interface Values {
   tabela: string;
@@ -15,9 +16,7 @@ interface Values {
 export default function CardInfoForm() {
   const solicitation = useAppSelector((state) => state.solicitation);
   if (solicitation.clientId === 0) {
-    return <div>
-      not found
-    </div>
+    return <NotFound/>
   }
   const rateTable = getRateTableById(solicitation.rateTableId);
   const installment = getInstallmentById(
