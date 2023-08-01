@@ -1,21 +1,23 @@
 # Empréstimos App
 
-Esta é uma aplicação Web que simula parte do fluxo de um sistema de empréstimos, basicamente a parte de cadastro de uma solicitação de empréstimo e a visualização da mesma.
+This is a web application that simulates part of the flow of a loan system - registering a loan request and viewing it.
 
-Esse projeto foi criado com [Next.js](https://nextjs.org/) por meio do [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+This project was created with [Next.js](https://nextjs.org/) and [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-Tecnologias Usadas: Typescript, React, Redux toolkit, NextJs, JavaScript, Styled-Components, Formik, lodash. 
+This project was deployed using Vercel. You start using the application right away clicking on the following link: https://emprestimos-app.vercel.app/
 
-## Instruções
+Tech Stack: Typescript, React, Redux toolkit, NextJs, JavaScript, Styled-Components, Formik, lodash, Vercel. 
 
-Primeiramente, clone este repositório com git clone https://github.com/Taina-conde/emprestimos-app.git
+## Instructions to run the project locally 
 
-- navegue para a pasta da aplicação : `cd emprestimos-app`
-- instale as dependências do projeto: `npm install`
-- inicie o servidor: `npm run dev`
-- verifique se o Next app está rodando no browser em http://localhost:3000/.
+Clone this repository using `git clone https://github.com/Taina-conde/emprestimos-app.git`
 
-## Dependências do Projeto
+- `cd emprestimos-app`
+- install the project's dependencies: `npm install`
+- initiate the server: `npm run dev`
+- verify if the Next app is running on http://localhost:3000/.
+
+## Project's dependencies
 
 - @reduxjs/toolkit: ^1.6.0,
 - @types/react-redux: ^7.1.16,
